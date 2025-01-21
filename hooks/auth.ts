@@ -27,16 +27,8 @@ export const loginUser = async (data: {
 }) => {
   try {
     const response = await apiClient.post('/login', data);
-    console.log('Login Response Data:', JSON.stringify(response.data, null, 2));
     return response.data;
   } catch (error: any) {
-
-    if (error.response) {
-      console.error('Error Response:', JSON.stringify(error.response.data, null, 2));
-      throw new Error(error.response.data.message || 'Login failed');
-    } else {
-      console.error('Error Message:', error.message);
-      throw new Error('An error occurred during login');
-    }
+    console.log("Eror Broku: ", error)
   }
 };

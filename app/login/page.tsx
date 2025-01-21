@@ -7,40 +7,39 @@ import { FiEye, FiEyeOff } from "react-icons/fi"
 import { useRouter } from "next/navigation";
 
 const Login = () => {
-    const [email, setEmail] = useState<string>("");
-    const [password, setPassword] = useState<string>("");
-    const [error, setError] = useState<string>("");
-    const [loading, setLoading] = useState<boolean>(false);
+    const [ email, setEmail ] = useState<string>("");
+    const [ password, setPassword ] = useState<string>("");
+    const [ error, setError ] = useState<string>("");
+    const [ loading, setLoading ] = useState<boolean>(false);
     const router = useRouter();
-
-    const tanganiLogin = async (e: FormEvent) => {
-        e.preventDefault();
-        setLoading(true);
-        setError("");
-
-        if (!email || !password) {
-            setError("Email dan Password harus diisi!");
-            setLoading(false);
-            return;
-        }
-
-        try {
-            const data = await loginUser({ email, password });
-            console.log("Login Sukses Bosku", data);
-
-            localStorage.setItem("user", JSON.stringify(data));
-
-            router.push("/home");
-        } catch (err: any) {
-            if (err.response) {
-                setError(err.response.data.message || "Login Gagal, Cek Kembali Email atau Password!");
-            } else {
-                setError("Terjadi masalah dengan koneksi, coba lagi nanti.");
-            }
-        } finally {
-            setLoading(false);
-        }
-    };
+    const tanganiLogin = async(e: FormEvent) => {
+      e.preventDefault();
+      setLoading(true);
+      setError("");
+  
+      if( !email && !password ) {
+        setError("Email Dan Password Harus Di Isi!");
+        return;
+      }
+      else if(!email) {
+        setError("Email Harus Di isi!");
+        return;
+      }
+      else if(!password) {
+        setError("Password Harus Di isi!");
+        return;
+      }
+  
+      try {
+        const data = await loginUser({email, password});
+        return(router.push('/home'))
+        setError(data);
+      } catch(error: any) {
+        setError("Kesalahan Tidak Terduga")
+      } finally {
+        setLoading(false);
+      }
+    }
 
     const [passwordVisible, setPasswordVisible] = useState(false)
 
