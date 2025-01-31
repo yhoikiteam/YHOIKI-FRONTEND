@@ -5,6 +5,8 @@ import { useState, FormEvent } from "react";
 import { registerUser } from "../../hooks/auth";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
+import VerifyEmail from "../components/layout/Auth/VerifyEmail";
 
 const Register = () => {
     const [name, setName] = useState<string>("");
@@ -13,6 +15,8 @@ const Register = () => {
     const [password_confirmation, setConfirmPassword] = useState<string>("");
     const [error, setError] = useState<string>("");
     const [loading, setLoading] = useState<boolean>(false);
+    const [typeError, setTypeError] = useState<string>("");
+    const [step, setStep] = useState<number>(2);
     const router = useRouter();
 
     const tanganiRegister = async (e: FormEvent) => {
@@ -20,26 +24,38 @@ const Register = () => {
         setLoading(true);
         setError("");
 
-        // Validasi input sebelum melanjutkan
         if (!name || !email || !password || !password_confirmation) {
             setError("Semua kolom harus diisi!");
             setLoading(false);
             return;
         }
 
-        if (password !== password_confirmation) {
-            setError("Password dan Konfirmasi Password tidak cocok!");
+        if (name.length > 20) {
+            setError("Nama Maksimal 20 Karakter");
             setLoading(false);
+            setTypeError("name")
             return;
         }
 
+        if (password.length < 8) {
+            setError("Password Minimal 8 Karakter");
+            setLoading(false);
+            setTypeError("password")
+            return;
+        }
+
+        if (password !== password_confirmation) {
+            setError("Password dan Konfirmasi Password tidak cocok!");
+            setLoading(false);
+            setTypeError("confirmpassword")
+            return;
+        }
+
+
         try {
-            // Panggil API untuk registrasi
             const response = await registerUser({ name, email, password, password_confirmation });
             console.log("Registrasi Sukses Bosku:", response);
-
-            // Redirect ke halaman login setelah registrasi berhasil
-            router.push("/login");
+            setStep(2);
         } catch (err: any) {
             if (err.message) {
                 setError(err.message);
@@ -59,7 +75,8 @@ const Register = () => {
 
     return (
         <div className="w-full h-screen bg-white backdrop-blur-sm flex items-center justify-center">
-            <form onSubmit={tanganiRegister} className="bg-white w-3/5 h-auto rounded-3xl border border-gray-300 flex shadow-xl relative">
+            { step === 1 &&
+            <form onSubmit={tanganiRegister} className="bg-white w-3/5 h-auto rounded-3xl border border-gray-300 flex items-center shadow-xl relative">
                 <div className="text-4xl">
                     <button
                         type="button"
@@ -70,18 +87,11 @@ const Register = () => {
                     </button>
                 </div>
 
-                <div className="w-1/2 h-full overflow-hidden">
-                    <a href="/" id="logo" className="flex space-x-3 items-center absolute p-5">
-                        <img className="w-7" src="https://i.ibb.com/0DhSzYN/Yhoiki.png" alt="logo" />
-                        <h1 className="text-gray-700 font-bold text-xl">Yhoiki</h1>
-                    </a>
-                    <Image
-                        src="/images/Hero.png"
-                        alt="Hero Image"
-                        width={1000}
-                        height={1000}
-                        className="object-cover w-full h-full rounded-l-3xl"
-                    />
+                <div className="w-1/2 h-full flex justify-center items-center">
+                    <Link href="/" id="logo" className="flex space-x-3 items-center p-5">
+                        <img className="w-12" src="https://i.ibb.co.com/0DhSzYN/Yhoiki.png" alt="logo" />
+                        <h1 className="text-gray-700 font-bold text-4xl">Yhoiki</h1>
+                    </Link>
                 </div>
 
                 <div className="w-1/2 flex flex-col space-y-4 p-8 justify-center items-center text-gray-600">
@@ -91,8 +101,8 @@ const Register = () => {
                         name="name"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
-                        placeholder="Username"
-                        className="bg-gray-200 rounded-full px-6 py-2 border border-gray-300 hover:bg-gray-300 outline-color1 duration-300 w-full"
+                        placeholder="Name"
+                        className={`${typeError === "name" && 'border-red-500'} bg-gray-200 rounded-full px-6 py-2 border border-gray-300 hover:bg-gray-300 outline-color1 duration-300 w-full`}
                     />
                     <input
                         type="email"
@@ -109,7 +119,7 @@ const Register = () => {
                             name="password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
-                            className="bg-gray-200 rounded-full px-6 py-2 border border-gray-300 hover:bg-gray-300 outline-color1 duration-300 w-full"
+                            className={`${typeError === "password" && 'border-red-500'} bg-gray-200 rounded-full px-6 py-2 border border-gray-300 hover:bg-gray-300 outline-color1 duration-300 w-full`}
                         />
                         <button
                             type="button"
@@ -130,7 +140,7 @@ const Register = () => {
                             name="confirmpassword"
                             value={password_confirmation}
                             onChange={(e) => setConfirmPassword(e.target.value)}
-                            className="bg-gray-200 rounded-full px-6 py-2 border border-gray-300 hover:bg-gray-300 outline-color1 duration-300 w-full"
+                            className={`${typeError === "confirmpassword" && 'border-red-500'} bg-gray-200 rounded-full px-6 py-2 border border-gray-300 hover:bg-gray-300 outline-color1 duration-300 w-full`}
                         />
                         <button
                             type="button"
@@ -153,7 +163,10 @@ const Register = () => {
                     </button>
                     {error && <p className="text-red-500 text-sm mb-2">{error}</p>}
                 </div>
-            </form>
+            </form>}
+            { step === 2 &&
+                <VerifyEmail/>
+            }
         </div>
     );
 };

@@ -17,6 +17,7 @@ export default function Navbar() {
         {label: "Service", path: "/Service"},
         {label: "Course", path: "/Course"},
         {label: "Programs", path: "/Programs"},
+        {label: "Comumnity", path: "/Comumnity"},
     ]
     return(
         <nav className="w-full flex items-center justify-between px-8 py-4 border-b shadow-xl bg-white">

@@ -1,10 +1,10 @@
 "use client"
 
-import Image from "next/image"
 import { useState, FormEvent } from "react"
 import { loginUser } from "../../hooks/auth";
 import { FiEye, FiEyeOff } from "react-icons/fi"
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 const Login = () => {
     const [ email, setEmail ] = useState<string>("");
@@ -31,9 +31,9 @@ const Login = () => {
       }
   
       try {
-        const data = await loginUser({email, password});
-        return(router.push('/home'))
-        setError(data);
+        const response = await loginUser({email, password});
+        return(router.push('/dashboard'))
+        setError(response);
       } catch(error: any) {
         setError("Kesalahan Tidak Terduga")
       } finally {
@@ -63,18 +63,11 @@ const Login = () => {
                 </div>
 
                 {/* Bagian Gambar */}
-                <div className="w-1/2 h-full overflow-hidden">
-                    <a href="/" id="logo" className="flex space-x-3 items-center absolute p-5">
-                        <img className="w-7" src="https://i.ibb.com/0DhSzYN/Yhoiki.png" alt="logo" />
-                        <h1 className="text-gray-700 font-bold text-xl">Yhoiki</h1>
-                    </a>
-                    <Image
-                        src="/images/Hero.png"
-                        alt="Hero Image"
-                        width={600}
-                        height={600}
-                        className="object-cover w-full h-full rounded-l-3xl"
-                    />
+                <div className="w-1/2 h-full flex justify-center items-center">
+                    <Link href="/" id="logo" className="flex space-x-3 items-center p-5">
+                        <img className="w-12" src="https://i.ibb.co.com/0DhSzYN/Yhoiki.png" alt="logo" />
+                        <h1 className="text-gray-700 font-bold text-4xl">Yhoiki</h1>
+                    </Link>
                 </div>
                 
                 {/* Form Login */}
@@ -111,7 +104,7 @@ const Login = () => {
                     </div>
                     <div className="w-full flex justify-between px-2">
                         <button className="cursor-pointer text-color1 text-sm px-2 hover:text-color2 duration-300">Forgot Password?</button>
-                        <button className="cursor-pointer text-color1 text-sm px-2 hover:text-color2 duration-300">Register</button>
+                        <Link href='/register' className="cursor-pointer text-color1 text-sm px-2 hover:text-color2 duration-300">Register</Link>
                     </div>
                     <button
                         type="submit"

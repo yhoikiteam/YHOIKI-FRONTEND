@@ -1,11 +1,9 @@
-import CardProduct from "./components/CardProduct";
 import Navbar from "./components/Navbar";
-import Footer from "./components/pages/Footer";
-import HeroSection from "./components/pages/Hero";
-import Kategori from "./components/pages/Kategori";
-import PopularProduct from "./components/pages/PopularProduct/page";
-import PopularClass from "./components/pages/PopularClass/page"
-import Login from "./components/pages/Auth/Login";
+import Footer from "./components/layout/Footer";
+import HeroSection from "./components/layout/Hero";
+import Kategori from "./components/layout/Kategori";
+import PopularProduct from "./components/layout/PopularProduct/page";
+import PopularClass from "./components/layout/PopularClass/page"
 
 export default function page() {
   return (
