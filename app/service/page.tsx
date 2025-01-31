@@ -1,9 +1,9 @@
-import Navbar from "../components/Navbar"
+import MainLayout from "@/layouts/MainLayout";
 
-export default function Service() {
-    return(
-        <div className="bg-white w-full h-screen">
-            <Navbar/>
-        </div>
-    )
+export default function ServicePage() {
+  return (
+    <MainLayout>
+      <div>Service Page</div>
+    </MainLayout>
+  );
 }

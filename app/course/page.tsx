@@ -1,9 +1,9 @@
-import Navbar from "../components/Navbar"
+import MainLayout from "@/layouts/MainLayout";
 
-export default function Course() {
-    return(
-        <div className="w-full h-screen bg-white">
-            <Navbar/>
-        </div>
-    )
+export default function CoursePage() {
+  return (
+    <MainLayout>
+      <div>Course Page</div>
+    </MainLayout>
+  );
 }
