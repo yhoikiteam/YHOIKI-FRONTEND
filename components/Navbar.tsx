@@ -1,8 +1,7 @@
 "use client";
 
-import { usePathname } from "next/navigation";
 import Link from "next/link";
-
+import { usePathname } from "next/navigation";
 import Button from "./Button";
 import Search from "./Search";
 
@@ -20,17 +19,21 @@ export default function Navbar() {
   ];
   return (
     <div className="sticky inset-x-0 top-0 z-50">
-      <nav className="relative w-full flex items-center justify-between px-8 py-4 border-b shadow-xl bg-white">
-        <Link href="/" id="logo" className="flex space-x-3 items-center">
-          <img className="w-7" src="https://i.ibb.co.com/0DhSzYN/Yhoiki.png" alt="logo" />
-          <h1 className="text-gray-700 font-bold text-xl">Yhoiki</h1>
+      <nav className="relative flex w-full items-center justify-between border-b bg-white px-8 py-4 shadow-xl">
+        <Link href="/" id="logo" className="flex items-center space-x-3">
+          <img
+            className="w-7"
+            src="https://i.ibb.co.com/0DhSzYN/Yhoiki.png"
+            alt="logo"
+          />
+          <h1 className="text-xl font-bold text-gray-700">Yhoiki</h1>
         </Link>
-        <div id="sub" className="list-none text-gray-600 flex space-x-10">
+        <div id="sub" className="flex list-none space-x-10 text-gray-600">
           {sub.map((item, index) => (
             <li key={index}>
               <Link
                 href={item.path}
-                className={`font-medium duration-300 bg-gradient-to-r from-color1 to-color2 bg-clip-text hover:text-transparent ${
+                className={`bg-gradient-to-r from-color1 to-color2 bg-clip-text font-medium duration-300 hover:text-transparent ${
                   pathname === item.path ? "text-transparent" : ""
                 }`}
               >
@@ -42,15 +45,20 @@ export default function Navbar() {
         <div id="auth" className="flex items-center space-x-3">
           <Search />
           <div id="bahasa">
-            <button className="font-semibold mx-5 text-gray-600">ENG</button>
+            <button className="mx-5 font-semibold text-gray-600">ENG</button>
           </div>
           <Link
             href="/login"
-            className="bg-gray-200 py-2 px-4 rounded-full text-gray-500 hover:bg-gray-300 duration-300"
+            className="rounded-full bg-gray-200 px-4 py-2 text-gray-500 duration-300 hover:bg-gray-300"
           >
             Login
           </Link>
-          <Button id="Register" text="Register" url="/register" customcss="px-6" />
+          <Button
+            id="Register"
+            text="Register"
+            url="/register"
+            customcss="px-6"
+          />
         </div>
       </nav>
     </div>

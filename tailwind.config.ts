@@ -1,5 +1,5 @@
-import defaultTheme from "tailwindcss/defaultTheme";
 import type { Config } from "tailwindcss";
+import defaultTheme from "tailwindcss/defaultTheme";
 
 export default {
   content: [
@@ -11,8 +11,14 @@ export default {
     extend: {
       fontFamily: {
         inter: ["var(--font-inter)", ...defaultTheme.fontFamily.sans],
-        "geist-sans": ["var(--font-geist-sans)", ...defaultTheme.fontFamily.sans],
-        "geist-mono": ["var(--font-geist-mono)", ...defaultTheme.fontFamily.sans],
+        "geist-sans": [
+          "var(--font-geist-sans)",
+          ...defaultTheme.fontFamily.sans,
+        ],
+        "geist-mono": [
+          "var(--font-geist-mono)",
+          ...defaultTheme.fontFamily.sans,
+        ],
       },
       colors: {
         color1: "#75C57E",
