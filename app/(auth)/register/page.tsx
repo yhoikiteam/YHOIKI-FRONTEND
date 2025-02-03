@@ -1,12 +1,12 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
-import Image from "next/image";
-import { useState, FormEvent } from "react";
+import type { FormEvent } from "react";
+import { useState } from "react";
 import { FiEye, FiEyeOff } from "react-icons/fi";
+import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { registerUser } from "@/services/authService";
-import Link from "next/link";
 
 const Register = () => {
   const [name, setName] = useState<string>("");
@@ -37,7 +37,12 @@ const Register = () => {
 
     try {
       // Panggil API untuk registrasi
-      const response = await registerUser({ name, email, password, password_confirmation });
+      const response = await registerUser({
+        name,
+        email,
+        password,
+        password_confirmation,
+      });
       console.log("Registrasi Sukses Bosku:", response);
 
       // Redirect ke halaman login setelah registrasi berhasil
@@ -60,36 +65,44 @@ const Register = () => {
   };
 
   return (
-    <div className="w-full h-screen bg-white backdrop-blur-sm flex items-center justify-center">
+    <div className="flex h-screen w-full items-center justify-center bg-white backdrop-blur-sm">
       <form
         onSubmit={tanganiRegister}
-        className="bg-white w-3/5 h-96 rounded-3xl border border-gray-300 flex shadow-xl relative"
+        className="relative flex h-96 w-3/5 rounded-3xl border border-gray-300 bg-white shadow-xl"
       >
         <div className="text-4xl">
           <button
             type="button"
-            className="absolute top-4 right-4 text-gray-600"
+            className="absolute right-4 top-4 text-gray-600"
             onClick={() => router.push("/")}
           >
             &times;
           </button>
         </div>
 
-        <div className="w-1/2 h-full overflow-hidden">
-          <Link href="/" id="logo" className="flex space-x-3 items-center absolute top-4 left-4 z-20">
-            <img className="w-7" src="https://i.ibb.co.com/0DhSzYN/Yhoiki.png" alt="logo" />
-            <h1 className="text-gray-700 font-bold text-xl">Yhoiki</h1>
+        <div className="h-full w-1/2 overflow-hidden">
+          <Link
+            href="/"
+            id="logo"
+            className="absolute left-4 top-4 z-20 flex items-center space-x-3"
+          >
+            <img
+              className="w-7"
+              src="https://i.ibb.co.com/0DhSzYN/Yhoiki.png"
+              alt="logo"
+            />
+            <h1 className="text-xl font-bold text-gray-700">Yhoiki</h1>
           </Link>
           <Image
             src="/images/Hero.png"
             alt="Hero Image"
             width={1000}
             height={1000}
-            className="object-cover w-full h-full rounded-l-3xl z-10"
+            className="z-10 h-full w-full rounded-l-3xl object-cover"
           />
         </div>
 
-        <div className="w-1/2 flex flex-col space-y-4 p-8 justify-center items-center text-gray-600">
+        <div className="flex w-1/2 flex-col items-center justify-center space-y-4 p-8 text-gray-600">
           <h1 className="text-2xl font-bold text-gray-600">Register</h1>
           <input
             type="name"
@@ -97,7 +110,7 @@ const Register = () => {
             value={name}
             onChange={(e) => setName(e.target.value)}
             placeholder="Username"
-            className="bg-gray-200 rounded-full px-6 py-2 border border-gray-300 hover:bg-gray-300 outline-color1 duration-300 w-full"
+            className="w-full rounded-full border border-gray-300 bg-gray-200 px-6 py-2 outline-color1 duration-300 hover:bg-gray-300"
           />
           <input
             type="email"
@@ -105,20 +118,20 @@ const Register = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Email"
-            className="bg-gray-200 rounded-full px-6 py-2 border border-gray-300 hover:bg-gray-300 outline-color1 duration-300 w-full"
+            className="w-full rounded-full border border-gray-300 bg-gray-200 px-6 py-2 outline-color1 duration-300 hover:bg-gray-300"
           />
-          <div className="w-full relative">
+          <div className="relative w-full">
             <input
               type={passwordVisible ? "text" : "password"}
               placeholder="Password"
               name="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="bg-gray-200 rounded-full px-6 py-2 border border-gray-300 hover:bg-gray-300 outline-color1 duration-300 w-full"
+              className="w-full rounded-full border border-gray-300 bg-gray-200 px-6 py-2 outline-color1 duration-300 hover:bg-gray-300"
             />
             <button
               type="button"
-              className="absolute right-4 top-1/2 transform -translate-y-1/2"
+              className="absolute right-4 top-1/2 -translate-y-1/2 transform"
               onClick={togglePasswordVisibility}
             >
               {passwordVisible ? (
@@ -128,18 +141,18 @@ const Register = () => {
               )}
             </button>
           </div>
-          <div className="w-full relative">
+          <div className="relative w-full">
             <input
               type={passwordVisible ? "text" : "password"}
               placeholder="Confirm Password"
               name="confirmpassword"
               value={password_confirmation}
               onChange={(e) => setConfirmPassword(e.target.value)}
-              className="bg-gray-200 rounded-full px-6 py-2 border border-gray-300 hover:bg-gray-300 outline-color1 duration-300 w-full"
+              className="w-full rounded-full border border-gray-300 bg-gray-200 px-6 py-2 outline-color1 duration-300 hover:bg-gray-300"
             />
             <button
               type="button"
-              className="absolute right-4 top-1/2 transform -translate-y-1/2"
+              className="absolute right-4 top-1/2 -translate-y-1/2 transform"
               onClick={togglePasswordVisibility}
             >
               {passwordVisible ? (
@@ -152,11 +165,11 @@ const Register = () => {
           <button
             type="submit"
             disabled={loading}
-            className="bg-gradient-to-r from-color1 to-color2 text-white w-full rounded-full p-2 hover:from-color2 hover:to-color2 duration-300"
+            className="w-full rounded-full bg-gradient-to-r from-color1 to-color2 p-2 text-white duration-300 hover:from-color2 hover:to-color2"
           >
             {loading ? "Registering..." : "Register"}
           </button>
-          {error && <p className="text-red-500 text-sm mb-2">{error}</p>}
+          {error && <p className="mb-2 text-sm text-red-500">{error}</p>}
         </div>
       </form>
     </div>

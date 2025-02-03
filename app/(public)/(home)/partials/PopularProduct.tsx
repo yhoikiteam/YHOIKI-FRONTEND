@@ -6,31 +6,35 @@
 // import { CardGraphicDesign } from "./Filter";
 // import Search from "../../Search";
 import { useState } from "react";
-import { buttonData } from "@/constants/data-dev/filtersProduct";
-import Search from "@/components/Search";
+import {
+  CardGraphicDesign,
+  CardPopular,
+  CardPrograming,
+} from "@/app/(public)/(home)/partials/CardFilters";
 import { ButtonFilter } from "@/components/Button";
-import { CardGraphicDesign, CardPopular, CardPrograming } from "@/app/(home)/modules/CardFilters";
+import Search from "@/components/Search";
+import { buttonData } from "@/constants/data-dev/filtersProduct";
 
-export default function PopularClass() {
+export default function PopularProduct() {
   const [activeFilter, setActiveFilter] = useState("ButtonsA");
 
   return (
-    <div className="bg-white pl-6 pb-10 h-screen">
+    <div className="h-screen bg-white pb-10 pl-6">
       {/* Header */}
-      <div className="grid grid-rows-[auto_1fr] grid-cols-1 md:grid-cols-12 gap-4">
-        <div className="row-start-1 md:col-span-12 p-4 flex items-center justify-between">
+      <div className="grid grid-cols-1 grid-rows-[auto_1fr] gap-4 md:grid-cols-12">
+        <div className="row-start-1 flex items-center justify-between p-4 md:col-span-12">
           <div>
-            <h2 className="text-4xl text-[#535753] font-bold mb-4">
+            <h2 className="mb-4 text-4xl font-bold text-[#535753]">
               <span className="bg-gradient-to-r from-[#75C57E] to-[#34A853] bg-clip-text text-transparent">
                 Popular
               </span>{" "}
               And{" "}
-              <span className="bg-gradient-to-r from-[#75C57E] to-[#34A853] bg-clip-text text-transparent border border-dashed border-gray-300 p-0.5">
+              <span className="border border-dashed border-gray-300 bg-gradient-to-r from-[#75C57E] to-[#34A853] bg-clip-text p-0.5 text-transparent">
                 Newest
               </span>{" "}
-              Class
+              Product
             </h2>
-            <p className="text-[#535753] font-semibold">
+            <p className="font-semibold text-[#535753]">
               Look for the products you need here and see competitive prices
             </p>
           </div>
@@ -38,7 +42,7 @@ export default function PopularClass() {
         </div>
 
         {/* Sidebar Filter */}
-        <div className="md:col-span-3 p-4 transition-all ease-in-out duration-500">
+        <div className="p-4 transition-all duration-500 ease-in-out md:col-span-3">
           {buttonData.map((btn) => (
             <ButtonFilter
               key={btn.id}
@@ -53,7 +57,7 @@ export default function PopularClass() {
         </div>
 
         {/* Konten Produk */}
-        <div className="md:col-span-9 col-span-full overflow-x-auto whitespace-nowrap">
+        <div className="col-span-full overflow-x-auto whitespace-nowrap md:col-span-9">
           {activeFilter === "ButtonsB" ? (
             <CardPrograming />
           ) : activeFilter === "ButtonsA" ? (
@@ -61,7 +65,7 @@ export default function PopularClass() {
           ) : activeFilter === "ButtonsC" ? (
             <CardGraphicDesign />
           ) : (
-            <div className=" text-red-600">Content tidak di temukan</div>
+            <div className="text-red-600">Content tidak di temukan</div>
           )}
         </div>
       </div>

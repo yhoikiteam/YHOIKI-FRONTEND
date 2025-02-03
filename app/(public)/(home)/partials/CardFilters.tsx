@@ -1,12 +1,14 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { products } from "@/constants/data-dev/products";
+import { useEffect, useState } from "react";
 import CardProduct from "@/components/CardProduct";
+import { products } from "@/constants/data-dev/products";
 
 // Komponen spinner dengan Tailwind
 const LoadingSpinner = () => (
-  <div className="text-lg font-semibold mt-4 text-gray-600">Tunggu sebentar...</div>
+  <div className="mt-4 text-lg font-semibold text-gray-600">
+    Tunggu sebentar...
+  </div>
 );
 
 export const CardPopular = () => {
