@@ -11,8 +11,11 @@
     "format": "prettier --write ."
   },
   "lint-staged": {
-    "**/*.{ts,tsx,js,jsx}": [
+    "*.{js,jsx,ts,tsx}": [
       "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,css,md}": [
       "prettier --write"
     ]
   },

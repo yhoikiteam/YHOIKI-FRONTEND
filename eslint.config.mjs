@@ -16,12 +16,12 @@ const eslintConfig = [
     "plugin:prettier/recommended", // Plugin Prettier seharusnya hanya diextend, tidak di-import
   ),
   {
-    // languageOptions: {
-    //   parser: "@typescript-eslint/parser",
-    //   parserOptions: {
-    //     project: "./tsconfig.json",
-    //   },
-    // },
+    languageOptions: {
+      parser: "@typescript-eslint/parser",
+      parserOptions: {
+        project: "./tsconfig.json",
+      },
+    },
     plugins: {
       "@typescript-eslint": typescriptPlugin,
     },
