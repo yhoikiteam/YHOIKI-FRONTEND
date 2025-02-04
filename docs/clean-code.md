@@ -91,10 +91,6 @@ echo 'All checks passed. Proceeding with commit...'
 exit 0
 ```
 
-### `lint-staged.config.js`
-
-Konfigurasi ini memastikan hanya file yang diubah yang akan diperiksa oleh Prettier dan ESLint sebelum commit.
-
 ## Kesimpulan
 
 - **ESLint**: Menjaga kualitas kode dengan mendeteksi kesalahan dan memastikan standar yang ketat.

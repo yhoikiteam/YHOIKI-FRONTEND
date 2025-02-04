@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import Button from "./Button";
+import { Button } from "./Button";
 import Search from "./Search";
 
 export default function Navbar() {
@@ -47,18 +47,12 @@ export default function Navbar() {
           <div id="bahasa">
             <button className="mx-5 font-semibold text-gray-600">ENG</button>
           </div>
-          <Link
-            href="/login"
-            className="rounded-full bg-gray-200 px-4 py-2 text-gray-500 duration-300 hover:bg-gray-300"
-          >
-            Login
-          </Link>
-          <Button
-            id="Register"
-            text="Register"
-            url="/register"
-            customcss="px-6"
-          />
+          <Button>
+            <Link href="/login">Login</Link>
+          </Button>
+          <Button>
+            <Link href="/register">Register</Link>
+          </Button>
         </div>
       </nav>
     </div>

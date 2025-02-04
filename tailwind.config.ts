@@ -20,6 +20,9 @@ export default {
           ...defaultTheme.fontFamily.sans,
         ],
       },
+      backgroundImage: {
+        "button-gradient": "linear-gradient(to right, #61BC71, #3CAB59)",
+      },
       colors: {
         color1: "#75C57E",
         color2: "#34A853",

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Button from "./Button";
+import { Button } from "./Button";
 
 interface CardProps {
   id: number;
@@ -23,7 +23,7 @@ export default function CardProduct({
   description,
 }: CardProps) {
   return (
-    <div className="mx-4 inline-block min-w-[300px] max-w-sm overflow-hidden rounded-2xl border-2 border-gray-200">
+    <div className="inline-block min-w-[300px] max-w-sm overflow-hidden rounded-2xl border-2 border-gray-200">
       {/* Hero Image */}
       <div className="relative flex h-44 items-center justify-center">
         <Image
@@ -87,21 +87,22 @@ export default function CardProduct({
 
         {/* Add to keranjang */}
         <div className="mt-4 flex items-center justify-between gap-4">
-          <Button
+          {/* <Button
             id={`product-${price}-price`}
             url="#"
             text={`From $${price}`}
             customcss="w-full py-2 md:py-1 bg-gradient-to-r from-color1 to-color2 rounded-full hover:from-color2 hover:to-color2 duration-300 text-sm font-bold"
-          />
+          /> */}
 
-          <button className="rounded-full bg-[#D9D9D9] px-2 py-2 text-lg text-white hover:bg-gray-600">
+          <Button className="w-full">From {price}</Button>
+          <Button size="icon" className="flex-shrink-0 bg-[#D9D9D9]">
             <Image
               src="/icon/Cart 4.svg"
               alt="Cart Icon"
               width={25}
               height={25}
             />
-          </button>
+          </Button>
         </div>
       </div>
     </div>

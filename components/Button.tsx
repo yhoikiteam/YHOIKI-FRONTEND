@@ -1,14 +1,8 @@
 "use client";
 
-import React from "react";
-import Link from "next/link";
-
-interface ButtonProps {
-  id: string;
-  url: string;
-  text: string;
-  customcss: string;
-}
+import type { ReactNode } from "react";
+import { type VariantProps, cva } from "class-variance-authority";
+import { cn } from "@/utils/cn";
 
 interface ButtonFilterProps {
   id: string;
@@ -19,15 +13,48 @@ interface ButtonFilterProps {
   isActive?: boolean;
 }
 
-export default function Button({ id, url, text, customcss }: ButtonProps) {
+const buttonVariants = cva(
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 [&_img]:w-5",
+  {
+    variants: {
+      variant: {
+        default:
+          "bg-button-gradient shadow hover:bg-button-gradient/90 rounded-full text-white",
+      },
+      size: {
+        default: "h-9 px-4 py-2",
+        sm: "h-8 rounded-md px-3 text-xs",
+        lg: "h-10 rounded-md px-8",
+        icon: "h-9 w-9",
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+      size: "default",
+    },
+  },
+);
+
+interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+    VariantProps<typeof buttonVariants> {
+  children: ReactNode;
+}
+
+function Button({ variant, size, className, children, ...props }: ButtonProps) {
   return (
     <button
-      id={id}
-      className={`rounded-full bg-gradient-to-r from-color1 to-color2 px-4 py-2 duration-300 hover:from-color2 hover:to-color2 ${customcss}`}
+      // className={cn(
+      //   "bg-button-gradient rounded-full px-4 py-2 duration-300",
+      //   customcss,
+      // )}
+      className={cn(buttonVariants({ variant, size, className }))}
+      {...props}
     >
-      <Link href={url}>
+      {/* <Link href={url}>
         <h1 className="text-white">{text}</h1>
-      </Link>
+      </Link> */}
+      {children}
     </button>
   );
 }
@@ -57,3 +84,5 @@ export const ButtonFilter: React.FC<ButtonFilterProps> = ({
     </button>
   );
 };
+
+export { buttonVariants, Button };

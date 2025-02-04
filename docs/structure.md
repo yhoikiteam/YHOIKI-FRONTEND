@@ -77,9 +77,6 @@
 │   ├── formatCurrency.ts
 │   ├── cn.ts
 │
-├── 📂 styles              # File CSS atau Tailwind
-│   ├── globals.css        # CSS global
-│
 ├── 📂 public              # File statis (gambar, ikon, dll.)
 │   ├── 📂 fonts
 │   ├── 📂 images
@@ -157,10 +154,6 @@
 ### 📂 `utils` - Utility functions
 
 - Berisi fungsi umum seperti format currency, manipulasi className, dll.
-
-### 📂 `styles` - File CSS atau Tailwind
-
-- Menyimpan file styling global.
 
 ### 📂 `public` - File statis
 

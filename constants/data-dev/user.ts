@@ -30,4 +30,14 @@ export const users: User[] = [
     description: "Kula asale saking ngayogyakarta omagaaaaa",
     imagePath: "/images/Profile.png",
   },
+  {
+    name: "Kipin Kiponr",
+    description: "Kula asale saking ngayogyakarta omagaaaaa",
+    imagePath: "/images/Profile.png",
+  },
+  {
+    name: "Kipin Kiponr",
+    description: "Kula asale saking ngayogyakarta omagaaaaa",
+    imagePath: "/images/Profile.png",
+  },
 ];

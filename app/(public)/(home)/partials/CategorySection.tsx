@@ -1,6 +1,6 @@
 export default function CategorySection() {
   return (
-    <div className="w-full p-8">
+    <div className="my-8 w-full p-8">
       <div className="flex-col items-center justify-center rounded-3xl bg-gradient-to-br from-color1 to-color2 p-24">
         <p className="text-center text-4xl font-bold text-white">
           Want to Learn and Get a Certificate? What are you waiting for!

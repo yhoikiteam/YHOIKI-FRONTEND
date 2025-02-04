@@ -1,5 +1,5 @@
 import { FaSearch } from "react-icons/fa";
-import Button from "./Button";
+import { Button } from "./Button";
 
 export default function Search() {
   return (
@@ -16,7 +16,7 @@ export default function Search() {
         className="rounded-full bg-transparent py-2 text-gray-700 focus:outline-none max-md:hidden"
       />
       <div className="max-md:hidden">
-        <Button id="search" text="Search" url="/search" customcss="#" />
+        <Button>Search</Button>
       </div>
     </div>
   );
