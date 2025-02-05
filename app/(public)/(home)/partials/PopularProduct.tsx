@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import { ButtonFilter } from "@/components/Button";
 import CardProduct from "@/components/CardProduct";
@@ -11,7 +11,13 @@ import { products } from "@/constants/data-dev/products";
 
 export default function PopularProduct() {
   const [activeFilter, setActiveFilter] = useState("ButtonsA");
-  const [emblaRef] = useEmblaCarousel();
+  const [emblaRef, emblaApi] = useEmblaCarousel();
+
+  const wrapperCardRef = useRef<HTMLDivElement | null>(null);
+
+  const width = wrapperCardRef.current?.offsetWidth! / 3;
+
+  console.log(width);
 
   return (
     <MaxWidthWrapper>
@@ -19,7 +25,7 @@ export default function PopularProduct() {
         <div className="flex items-start justify-between py-4">
           <div className="mb-4">
             <h2 className="mb-4 text-4xl font-bold text-[#535753]">
-              <span className="bg-button-gradient bg-clip-text text-transparent">
+              <span className="bg-primary-gradient-r bg-clip-text text-transparent">
                 Popular
               </span>{" "}
               And{" "}
@@ -36,8 +42,8 @@ export default function PopularProduct() {
         </div>
 
         {/* Sidebar Filter */}
-        <div className="flex gap-6">
-          <div className="w-72 flex-shrink-0 py-4 transition-all duration-500 ease-in-out">
+        <div className="flex flex-col gap-8 md:flex-row">
+          <div className="flex flex-col transition-all duration-500 ease-in-out">
             {buttonData.map((btn) => (
               <ButtonFilter
                 key={btn.id}
@@ -52,10 +58,13 @@ export default function PopularProduct() {
           </div>
 
           {/* Konten Produk */}
-          <div className="overflow-hidden" ref={emblaRef}>
-            <div className="flex gap-6">
+          <div className="overflow-hidden rounded-2xl" ref={emblaRef}>
+            <div className="flex gap-4">
               {products.map((product) => (
-                <div key={product.id} style={{ flex: "0 0 auto", minWidth: 0 }}>
+                <div
+                  key={product.id}
+                  className="w-full flex-shrink-0 sm:w-[calc(100%/2-1rem)] lg:w-[calc(100%/3-1rem)] 2xl:w-[calc(100%/4-1rem)]"
+                >
                   <CardProduct
                     id={product.id}
                     imageSrc={product.imageSrc}

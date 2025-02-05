@@ -53,7 +53,7 @@ const HeroSection = () => {
               className="rounded-3xl"
             />
             <div className="absolute -right-6 top-4 w-[270px] rounded-3xl border border-[#CCCCCC] bg-[#D9D9D9BF]/50 p-4 text-end shadow-xl backdrop-blur-md">
-              <span className="rounded-full bg-button-gradient px-10 py-1 text-sm font-bold text-white">
+              <span className="rounded-full bg-primary-gradient-r px-10 py-1 text-sm font-bold text-white">
                 Course
               </span>
               <p className="mt-2 text-sm text-gray-700">
@@ -63,7 +63,7 @@ const HeroSection = () => {
             </div>
 
             <div className="absolute -bottom-6 -left-10 w-[270px] rounded-3xl border border-[#CCCCCC] bg-[#D9D9D9BF]/50 p-4 shadow-xl backdrop-blur-md">
-              <span className="rounded-full bg-button-gradient px-10 py-1 text-sm font-bold text-white">
+              <span className="rounded-full bg-primary-gradient-r px-10 py-1 text-sm font-bold text-white">
                 Freelance
               </span>
               <p className="mt-2 text-sm text-gray-700">
@@ -75,7 +75,7 @@ const HeroSection = () => {
         </div>
 
         <div ref={emblaRef} className="w-full overflow-hidden py-12">
-          <div className="flex gap-6">
+          <div className="flex gap-12">
             {users.slice(0, 5).map((user, index) => (
               <div key={index}>
                 <Testimony

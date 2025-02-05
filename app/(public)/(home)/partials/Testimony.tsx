@@ -8,7 +8,7 @@ interface Props {
 
 export default function Testimony({ gambar, nama, komennya }: Props) {
   return (
-    <div className="flex h-28 w-72 items-center space-x-4 rounded-3xl border border-gray-300 bg-gray-200 p-3 text-gray-700 shadow-xl">
+    <div className="flex h-28 w-72 items-center space-x-4 rounded-3xl border border-gray-300 bg-gray-200 p-3 text-gray-700 shadow-[0px_5px_6px_-1px_rgba(0,0,0,0.1)]">
       <div id="profile">
         <Image
           src={gambar}

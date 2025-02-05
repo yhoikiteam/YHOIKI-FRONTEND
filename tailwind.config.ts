@@ -21,7 +21,8 @@ export default {
         ],
       },
       backgroundImage: {
-        "button-gradient": "linear-gradient(to right, #61BC71, #3CAB59)",
+        "primary-gradient-r": "linear-gradient(to right, #61BC71, #3CAB59)",
+        "primary-gradient-l": "linear-gradient(to right, #3CAB59, #61BC71)",
       },
       colors: {
         color1: "#75C57E",

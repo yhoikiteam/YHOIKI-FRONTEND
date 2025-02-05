@@ -19,7 +19,7 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-button-gradient shadow hover:bg-button-gradient/90 rounded-full text-white",
+          "bg-primary-gradient-r shadow hover:bg-primary-gradient-r/90 rounded-full text-white",
       },
       size: {
         default: "h-9 px-4 py-2",
@@ -45,7 +45,7 @@ function Button({ variant, size, className, children, ...props }: ButtonProps) {
   return (
     <button
       // className={cn(
-      //   "bg-button-gradient rounded-full px-4 py-2 duration-300",
+      //   "bg-primary-gradient-r rounded-full px-4 py-2 duration-300",
       //   customcss,
       // )}
       className={cn(buttonVariants({ variant, size, className }))}
@@ -71,14 +71,14 @@ export const ButtonFilter: React.FC<ButtonFilterProps> = ({
     <button
       onClick={() => onClick(id)}
       id={id}
-      className={`mb-2 h-12 w-full rounded-full p-[2px] text-left font-semibold ${
+      className={`mb-2 h-12 w-full rounded-full p-[2px] text-left font-semibold md:w-48 xl:w-72 ${
         isActive ? "bg-gradient-to-r from-[#75C57E] to-[#34A853]" : ""
       } ${customcss}`}
     >
       <div className="flex h-full w-full items-center rounded-full bg-[#E6E6E6] px-3 text-start text-[#535753]">
         <div className="flex items-center gap-3">
           <div>{icons}</div>
-          <p>{text}</p>
+          <p className="whitespace-nowrap">{text}</p>
         </div>
       </div>
     </button>

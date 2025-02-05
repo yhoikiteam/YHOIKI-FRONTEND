@@ -23,14 +23,14 @@ export default function CardProduct({
   description,
 }: CardProps) {
   return (
-    <div className="inline-block min-w-[300px] max-w-sm overflow-hidden rounded-2xl border-2 border-gray-200">
+    <div className="inline-block w-full overflow-hidden rounded-2xl border-2 border-gray-200 shadow-[0px_5px_6px_-1px_rgba(0,0,0,0.1)]">
       {/* Hero Image */}
-      <div className="relative flex h-44 items-center justify-center">
+      <div className="relative flex aspect-auto items-center justify-center">
         <Image
           src={badgeSrc}
           alt={name}
-          width={600}
-          height={600}
+          width={700}
+          height={700}
           className="h-full w-full object-fill"
         />
       </div>
@@ -50,7 +50,7 @@ export default function CardProduct({
 
           {/* Rating */}
           <span className="flex items-center gap-1 rounded-full bg-gradient-to-r from-color1 to-color2 px-4 py-[0.2rem] text-xs text-white md:px-2">
-            <p className="text-xs">Top Rate</p>
+            <p className="whitespace-nowrap text-xs">Top Rate</p>
             {[...Array(2)].map((_, index) => (
               <Image
                 src="/icon/Star toprate.svg"

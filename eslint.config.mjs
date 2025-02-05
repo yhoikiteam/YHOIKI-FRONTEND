@@ -11,10 +11,6 @@ const compat = new FlatCompat({
 });
 
 const eslintConfig = [
-  ...compat.extends(
-    "next/core-web-vitals", // Hapus "next/typescript" karena tidak lagi diperlukan
-    "plugin:prettier/recommended", // Plugin Prettier seharusnya hanya diextend, tidak di-import
-  ),
   {
     languageOptions: {
       parser: "@typescript-eslint/parser",
@@ -26,6 +22,7 @@ const eslintConfig = [
       "@typescript-eslint": typescriptPlugin,
     },
   },
+  ...compat.extends("next/core-web-vitals", "plugin:prettier/recommended"),
   {
     files: ["**/*.{js,jsx,ts,tsx}"],
     ignores: ["node_modules", ".next", "dist"],
