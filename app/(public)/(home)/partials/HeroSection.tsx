@@ -13,7 +13,7 @@ const HeroSection = () => {
   return (
     <MaxWidthWrapper>
       <section className="w-full bg-white pt-10">
-        <div className="mx-auto grid w-full grid-cols-1 items-center gap-8 lg:grid-cols-2">
+        <div className="mx-auto grid w-full grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-0">
           <div>
             <h1 className="text-4xl font-bold leading-tight text-[#535753]">
               Looking for{" "}
@@ -27,7 +27,7 @@ const HeroSection = () => {
               </span>{" "}
               Technology.
             </h1>
-            <p className="mt-4 font-semibold text-[#535753]">
+            <p className="mt-4 font-semibold text-[#535753] md:mr-20">
               At Yholix you can find all your digital needs. Come on, start
               searching now and see the prices and discounts! Want to learn
               about technology now? Visit the course menu!
@@ -44,14 +44,16 @@ const HeroSection = () => {
             </div>
           </div>
 
-          <div className="relative">
-            <Image
-              src="/images/Hero.png"
-              alt="Hero Image"
-              width={600}
-              height={400}
-              className="rounded-3xl"
-            />
+          <div className="relative mx-8 h-full lg:ml-0">
+            <div className="mr-16 h-full overflow-hidden rounded-3xl">
+              <Image
+                src="/images/Hero.png"
+                alt="Hero Image"
+                width={600}
+                height={400}
+                className="h-full w-full object-cover"
+              />
+            </div>
             <div className="absolute -right-6 top-4 w-[270px] rounded-3xl border border-[#CCCCCC] bg-[#D9D9D9BF]/50 p-4 text-end shadow-xl backdrop-blur-md">
               <span className="rounded-full bg-primary-gradient-r px-10 py-1 text-sm font-bold text-white">
                 Course
@@ -74,9 +76,9 @@ const HeroSection = () => {
           </div>
         </div>
 
-        <div ref={emblaRef} className="w-full overflow-hidden py-12">
-          <div className="flex gap-12">
-            {users.slice(0, 5).map((user, index) => (
+        <div ref={emblaRef} className="w-full overflow-hidden py-20">
+          <div className="flex justify-between gap-4">
+            {users.slice(0, 4).map((user, index) => (
               <div key={index}>
                 <Testimony
                   gambar={user.imagePath}

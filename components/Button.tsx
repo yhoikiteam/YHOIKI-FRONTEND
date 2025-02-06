@@ -20,9 +20,11 @@ const buttonVariants = cva(
       variant: {
         default:
           "bg-primary-gradient-r shadow hover:bg-primary-gradient-r/90 rounded-full text-white",
+        outline:
+          "bg-transparent shadow border border-[#CCCCCC] rounded-full text-[#A8A8A8]",
       },
       size: {
-        default: "h-9 px-4 py-2",
+        default: "h-9 px-6 py-2",
         sm: "h-8 rounded-md px-3 text-xs",
         lg: "h-10 rounded-md px-8",
         icon: "h-9 w-9",
@@ -44,16 +46,9 @@ interface ButtonProps
 function Button({ variant, size, className, children, ...props }: ButtonProps) {
   return (
     <button
-      // className={cn(
-      //   "bg-primary-gradient-r rounded-full px-4 py-2 duration-300",
-      //   customcss,
-      // )}
       className={cn(buttonVariants({ variant, size, className }))}
       {...props}
     >
-      {/* <Link href={url}>
-        <h1 className="text-white">{text}</h1>
-      </Link> */}
       {children}
     </button>
   );

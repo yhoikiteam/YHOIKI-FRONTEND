@@ -1,64 +1,52 @@
-import { FaInstagram, FaWebAwesome, FaWhatsapp } from "react-icons/fa6";
 import Link from "next/link";
+import { footerLinks } from "@/constants/footer";
+import Logo from "./Logo";
 
-export default function Footer() {
-  return (
-    <div className="w-full bg-white p-8 text-gray-700">
-      <div className="flex justify-between space-x-36 rounded-3xl bg-gray-200 p-24">
-        <div id="about" className="space-y-5">
-          <Link href="/" id="logo" className="flex items-center space-x-3">
-            <img
-              className="w-7"
-              src="https://i.ibb.co.com/0DhSzYN/Yhoiki.png"
-              alt="logo"
-            />
-            <h1 className="text-xl font-bold text-gray-700">Yhoiki</h1>
-          </Link>
-          <p>
-            Yhoiki Team adalah komunitas pengembang yang berdedikasi menciptakan
-            solusi digital kreatif dan inovatif. Kami memiliki pengalaman dalam
-            membangun aplikasi modern, website interaktif, serta teknologi masa
-            depan yang membantu mempercepat transformasi digital Anda.
-          </p>
-          <p className="flex items-center gap-1 text-[13px] text-[#A8A8A8]">
-            <span className="text-xl"> &copy;</span>Copyright Yhoiki 2024. All
-            right reveserd.
-          </p>
-        </div>
-        <div id="map" className="space-y-5">
-          <h1 className="text-xl font-bold text-gray-700">Web Map</h1>
-          <div className="flex space-x-14">
-            <div className="list-none space-y-4">
-              <li>Home</li>
-              <li>Testimony</li>
-              <li>Freelance</li>
-              <li>Course</li>
-              <li>Programs</li>
-              <li>Produk</li>
-            </div>
-            <div className="list-none space-y-4">
-              <li>Home</li>
-              <li>Testimony</li>
-              <li>Freelance</li>
-              <li>Course</li>
-              <li>Programs</li>
-              <li>Produk</li>
+const Footer = () => (
+  <footer className="mt-8 flex flex-col rounded-3xl bg-gray-200 text-black md:p-8">
+    <div className="flex flex-col justify-between gap-8 px-6 py-10 sm:px-16 lg:flex-row">
+      <div className="flex flex-col items-start justify-start gap-6 lg:max-w-md">
+        <Logo />
+        <p>
+          Yhoiki Team adalah komunitas pengembang yang berdedikasi menciptakan
+          solusi digital kreatif dan inovatif. Kami memiliki pengalaman dalam
+          membangun aplikasi modern, website interaktif, serta teknologi masa
+          depan yang membantu mempercepat transformasi digital Anda.
+        </p>
+      </div>
+
+      <div className="flex w-full flex-1 flex-wrap justify-end gap-20 max-md:mt-10 sm:flex-auto">
+        {footerLinks.map((item: any) => (
+          <div
+            key={item.title}
+            className="flex min-w-[150px] flex-col gap-6 text-base"
+          >
+            <h3 className="font-bold">{item.title}</h3>
+            <div className="flex flex-col gap-5">
+              {item.links.map((link: any) => (
+                <a key={link.title} href={link.url} className="text-gray-500">
+                  {link.title}
+                </a>
+              ))}
             </div>
           </div>
-        </div>
-        <div id="contact" className="space-y-5">
-          <h1 className="text-xl font-bold text-gray-700">Contact</h1>
-          <div className="flex w-44 items-center space-x-3">
-            <FaWhatsapp /> <p>+62 857-4337-9513</p>
-          </div>
-          <div className="flex items-center space-x-3">
-            <FaInstagram /> <p>yhoikiteam_</p>
-          </div>
-          <div className="flex items-center space-x-3">
-            <FaWebAwesome /> <p>yhoikiteam.co.id</p>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
-  );
-}
+
+    <div className="mt-10 flex flex-col items-start justify-between border-t border-gray-100 p-6 sm:flex-row sm:items-start sm:px-16">
+      <p>@{new Date().getFullYear()} CarHub. All rights reserved</p>
+
+      <div className="flex flex-1 justify-start gap-10 max-sm:mt-4 sm:justify-end">
+        <Link href="/" className="text-gray-500">
+          Privacy & Policy
+        </Link>
+        <Link href="/" className="text-gray-500">
+          Terms & Condition
+        </Link>
+      </div>
+    </div>
+  </footer>
+);
+
+export default Footer;

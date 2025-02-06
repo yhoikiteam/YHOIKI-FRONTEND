@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import { ButtonFilter } from "@/components/Button";
 import CardProduct from "@/components/CardProduct";
@@ -11,13 +11,7 @@ import { products } from "@/constants/data-dev/products";
 
 export default function PopularProduct() {
   const [activeFilter, setActiveFilter] = useState("ButtonsA");
-  const [emblaRef, emblaApi] = useEmblaCarousel();
-
-  const wrapperCardRef = useRef<HTMLDivElement | null>(null);
-
-  const width = wrapperCardRef.current?.offsetWidth! / 3;
-
-  console.log(width);
+  const [emblaRef] = useEmblaCarousel();
 
   return (
     <MaxWidthWrapper>
@@ -38,7 +32,9 @@ export default function PopularProduct() {
               Look for the products you need here and see competitive prices
             </p>
           </div>
-          <Search />
+          <div className="hidden w-fit sm:block sm:max-w-sm md:w-full">
+            <Search />
+          </div>
         </div>
 
         {/* Sidebar Filter */}

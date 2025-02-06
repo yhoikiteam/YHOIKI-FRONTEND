@@ -23,7 +23,9 @@ export default function RootLayout({
           inter.variable)
         }
       >
-        <main className="relative flex min-h-screen flex-col">{children}</main>
+        <main className="relative flex min-h-screen flex-col bg-white">
+          {children}
+        </main>
       </body>
     </html>
   );
