@@ -25,6 +25,8 @@ export default {
         "primary-gradient-l": "linear-gradient(to right, #3CAB59, #61BC71)",
       },
       colors: {
+        "gradient-r": "linear-gradient(to right, #61BC71, #3CAB59)",
+        "gradient-l": "linear-gradient(to right, #3CAB59, #61BC71)",
         color1: "#75C57E",
         color2: "#34A853",
         background: "var(--background)",

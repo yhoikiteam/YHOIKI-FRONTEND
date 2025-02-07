@@ -14,7 +14,7 @@ export default function Search() {
         id="search"
         autoComplete="off"
         placeholder="Search..."
-        className="bg-transparent py-2 text-gray-700 focus:outline-none max-md:hidden"
+        className="w-full bg-transparent py-2 text-gray-700 focus:outline-none max-md:hidden"
       />
       <div className="absolute right-0 top-0 flex h-full items-center max-md:hidden">
         <Button>Search</Button>
