@@ -13,7 +13,6 @@ interface CardProps {
 }
 
 export default function CardProduct({
-  id,
   imageSrc,
   badgeSrc,
   name,
@@ -49,7 +48,7 @@ export default function CardProduct({
           </div>
 
           {/* Rating */}
-          <span className="flex items-center gap-1 rounded-full bg-gradient-to-r from-color1 to-color2 px-4 py-[0.2rem] text-xs text-white md:px-2">
+          <span className="flex items-center gap-1 rounded-full bg-primary-gradient px-4 py-[0.2rem] text-xs text-white md:px-2">
             <p className="whitespace-nowrap text-xs">Top Rate</p>
             {[...Array(2)].map((_, index) => (
               <Image

@@ -8,7 +8,7 @@ interface Props {
 
 export default function Testimony({ gambar, nama, komennya }: Props) {
   return (
-    <div className="flex h-28 w-72 items-center space-x-4 rounded-3xl border border-gray-300 bg-gray-200 p-3 text-gray-700 shadow-[0px_5px_6px_-1px_rgba(0,0,0,0.1)]">
+    <div className="flex h-28 w-72 items-center space-x-4 rounded-3xl border border-gray-300 bg-platinum p-3 text-gray-700 shadow-[0px_5px_6px_-1px_rgba(0,0,0,0.1)]">
       <div id="profile">
         <Image
           src={gambar}
@@ -20,12 +20,12 @@ export default function Testimony({ gambar, nama, komennya }: Props) {
       </div>
       <div className="flex-col items-center">
         <div id="nama">
-          <h1 className="rounded-full bg-gradient-to-r from-color1 to-color2 text-center text-sm font-medium text-white">
+          <h1 className="w-fit rounded-full bg-primary-gradient px-4 py-0.5 text-center text-xs font-medium text-white">
             {nama}
           </h1>
         </div>
         <div id="komennya" className="h-10 w-44 overflow-hidden">
-          <p className="p-0.5 text-xs">{komennya}</p>
+          <p className="mt-0.5 p-0.5 text-xs">{komennya}</p>
         </div>
       </div>
     </div>

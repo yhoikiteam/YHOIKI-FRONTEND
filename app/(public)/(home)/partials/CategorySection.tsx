@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
-import { ButtonFilter } from "@/components/Button";
 import CardProduct from "@/components/CardProduct";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import Search from "@/components/Search";
@@ -19,17 +18,17 @@ export default function CategorySection() {
       <div className="">
         <div className="flex items-start justify-between py-4">
           <div className="mb-4">
-            <h2 className="mb-4 text-4xl font-bold text-[#535753]">
-              <span className="bg-primary-gradient-r bg-clip-text text-transparent">
+            <h2 className="mb-4 text-4xl font-bold text-davy-gray">
+              <span className="bg-primary-gradient bg-clip-text text-transparent">
                 Popular
               </span>{" "}
               And{" "}
-              <span className="border border-dashed border-gray-300 bg-gradient-to-r from-[#75C57E] to-[#34A853] bg-clip-text p-0.5 text-transparent">
+              <span className="border border-dashed border-gray-300 bg-primary-gradient bg-clip-text p-0.5 text-transparent">
                 Newest
               </span>{" "}
               Product
             </h2>
-            <p className="font-semibold text-[#535753]">
+            <p className="font-semibold text-davy-gray">
               Look for the products you need here and see competitive prices
             </p>
           </div>
@@ -46,9 +45,10 @@ export default function CategorySection() {
                 key={btn.id}
                 onClick={() => setActiveFilter(btn.id)}
                 className={cn(
-                  "mb-2 flex h-12 min-w-56 items-center gap-3 rounded-full border-2 bg-[#E6E6E6] px-4 text-left font-semibold text-gray-500 transition-all",
+                  "mb-2 flex h-12 min-w-56 items-center gap-3 rounded-full border-2 bg-platinum px-4 text-left font-semibold text-gray-500 transition-all",
                   {
-                    "border-color2 text-color2": activeFilter === btn.id,
+                    "border-medium-sea-green text-medium-sea-green":
+                      activeFilter === btn.id,
                   },
                 )}
               >

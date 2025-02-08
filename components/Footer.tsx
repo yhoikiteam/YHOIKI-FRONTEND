@@ -4,7 +4,7 @@ import Logo from "./Logo";
 import MaxWidthWrapper from "./MaxWidthWrapper";
 
 const Footer = () => (
-  <footer className="mt-8 text-black md:p-8">
+  <footer className="mt-8 md:p-8">
     <MaxWidthWrapper className="rounded-3xl bg-gray-200">
       <div className="flex flex-col justify-between gap-8 px-6 py-10 xl:flex-row">
         <div className="flex flex-col items-start justify-start gap-4 xl:max-w-lg">

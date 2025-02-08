@@ -7,8 +7,8 @@ export default function page() {
       <HeroSection />
       <CategorySection />
       <div className="my-8 w-full p-8">
-        <div className="flex-col items-center justify-center rounded-3xl bg-gradient-to-br from-color1 to-color2 p-24">
-          <p className="text-center text-4xl font-bold text-white">
+        <div className="flex-col items-center justify-center rounded-3xl bg-primary-gradient p-24">
+          <p className="text-center text-4xl font-bold text-light">
             Want to Learn and Get a Certificate? What are you waiting for!
             <br />• • •
           </p>

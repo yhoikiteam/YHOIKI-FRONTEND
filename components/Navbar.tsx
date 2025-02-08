@@ -23,7 +23,7 @@ export default function Navbar() {
   ];
 
   return (
-    <div className="sticky inset-x-0 top-0 z-50 w-full overflow-hidden bg-white shadow-xl">
+    <div className="sticky inset-x-0 top-0 z-50 w-full overflow-hidden bg-light shadow-xl">
       <nav className="relative flex h-20 w-full items-center justify-between gap-10 border-b px-4 md:px-8">
         {/* Kiri: Logo & Menu */}
         <div className="flex items-center gap-10">
@@ -33,8 +33,8 @@ export default function Navbar() {
               <li key={index}>
                 <Link
                   href={item.path}
-                  className={`bg-gradient-to-r from-color1 to-color2 bg-clip-text font-medium duration-300 hover:text-transparent ${
-                    pathname === item.path ? "text-transparent" : ""
+                  className={`bg-primary-gradient bg-clip-text font-medium duration-300 hover:text-transparent ${
+                    pathname === item.path && "text-transparent"
                   }`}
                 >
                   {item.label}
@@ -51,7 +51,7 @@ export default function Navbar() {
           </div>
           <button className="font-semibold text-gray-600">ENG</button>
           <div className="hidden space-x-4 xl:flex">
-            <Button variant="outline">
+            <Button variant="outline" className="shadow-none">
               <Link href="/login">Login</Link>
             </Button>
             <Button>
