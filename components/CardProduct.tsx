@@ -94,7 +94,7 @@ export default function CardProduct({
           /> */}
 
           <Button className="w-full">From {price}</Button>
-          <Button size="icon" className="flex-shrink-0 bg-[#D9D9D9]">
+          <Button size="icon" className="flex-shrink-0 bg-gainsboro">
             <Image
               src="/icon/Cart 4.svg"
               alt="Cart Icon"

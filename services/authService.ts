@@ -2,10 +2,10 @@ import { API_ENDPOINTS } from "@/constants/api";
 import apiClient from "@/libs/axios";
 
 export const registerUser = async (data: {
-  name: string;
+  username: string;
   email: string;
   password: string;
-  password_confirmation: string;
+  confirm_password: string;
 }) => {
   try {
     const response = await apiClient.post(API_ENDPOINTS.REGISTER, data);

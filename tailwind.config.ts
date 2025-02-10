@@ -5,6 +5,7 @@ export default {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./layouts/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
@@ -35,6 +36,7 @@ export default {
         platinum: "var(--color-platinum)",
         silver: "var(--color-silver)",
         munsell: "var(--color-munsell)",
+        gainsboro: "#D9D9D9",
         "fern-green": "var(--color-fern)",
         "medium-sea-green": "var(--color-medium-sea-green)",
         card: {

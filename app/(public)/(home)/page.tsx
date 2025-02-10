@@ -1,7 +1,7 @@
 import CategorySection from "@/app/(public)/(home)/partials/CategorySection";
 import HeroSection from "@/app/(public)/(home)/partials/HeroSection";
 
-export default function page() {
+export default function Page() {
   return (
     <>
       <HeroSection />

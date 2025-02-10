@@ -54,7 +54,7 @@ const HeroSection = () => {
                 className="h-full w-full object-cover"
               />
             </div>
-            <div className="absolute -right-6 top-4 w-[270px] rounded-3xl border border-light-gray bg-[#D9D9D9]/50 p-4 text-end shadow-xl backdrop-blur-md">
+            <div className="absolute -right-6 top-4 w-[270px] rounded-3xl border border-light-gray bg-gainsboro/50 p-4 text-end shadow-xl backdrop-blur-md">
               <span className="rounded-full bg-primary-gradient px-10 py-1 text-sm font-bold text-white">
                 Course
               </span>
@@ -64,7 +64,7 @@ const HeroSection = () => {
               </p>
             </div>
 
-            <div className="absolute -bottom-6 -left-10 w-[270px] rounded-3xl border border-light-gray bg-[#D9D9D9]/50 p-4 shadow-xl backdrop-blur-md">
+            <div className="absolute -bottom-6 -left-10 w-[270px] rounded-3xl border border-light-gray bg-gainsboro/50 p-4 shadow-xl backdrop-blur-md">
               <span className="rounded-full bg-primary-gradient px-10 py-1 text-sm font-bold text-white">
                 Freelance
               </span>
