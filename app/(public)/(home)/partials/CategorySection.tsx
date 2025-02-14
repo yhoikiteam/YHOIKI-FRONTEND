@@ -32,9 +32,9 @@ export default function CategorySection() {
               Look for the products you need here and see competitive prices
             </p>
           </div>
-          <div className="hidden w-full sm:max-w-sm lg:block">
+          {/* <div className="hidden w-full sm:max-w-sm lg:block">
             <Search />
-          </div>
+          </div> */}
         </div>
 
         {/* Sidebar Filter */}
@@ -62,10 +62,7 @@ export default function CategorySection() {
           <div className="overflow-hidden rounded-2xl" ref={emblaRef}>
             <div className="flex gap-4">
               {products.map((product) => (
-                <div
-                  key={product.id}
-                  className="w-full flex-shrink-0 sm:w-[calc(100%/2-1rem)] lg:w-[calc(100%/3-1rem)]"
-                >
+                <div key={product.id} className="w-[280px] flex-shrink-0">
                   <CardProduct
                     id={product.id}
                     imageSrc={product.imageSrc}

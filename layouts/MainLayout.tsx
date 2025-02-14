@@ -11,16 +11,18 @@ export default function MainLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const isMobile = useScreenSize();
+  // const isMobile = useScreenSize();
 
-  if (isMobile) {
-    return <MaintenancePage />;
-  }
+  // if (isMobile) {
+  //   return <MaintenancePage />;
+  // }
 
   return (
     <>
       <Navbar />
-      <div className="min-h-screen flex-1 flex-grow bg-white">{children}</div>
+      <div className="min-h-screen flex-1 flex-grow bg-background">
+        {children}
+      </div>
       <Footer />
     </>
   );

@@ -4,7 +4,6 @@ import type { ChangeEvent, FormEvent } from "react";
 import { useState } from "react";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { Button } from "@/components/Button";
 import MaintenancePage from "@/components/MaintenancePage";
 import { useScreenSize } from "@/hooks/useScreenSize";

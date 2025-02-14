@@ -24,7 +24,7 @@ export default function Navbar() {
 
   return (
     <div className="sticky inset-x-0 top-0 z-50 w-full overflow-hidden bg-light shadow-xl">
-      <nav className="relative flex h-20 w-full items-center justify-between gap-10 border-b px-4 md:px-8">
+      <nav className="relative flex h-20 w-full items-center justify-between gap-8 border-b px-4 md:px-8">
         {/* Kiri: Logo & Menu */}
         <div className="flex items-center gap-10">
           <Logo />
@@ -33,7 +33,7 @@ export default function Navbar() {
               <li key={index}>
                 <Link
                   href={item.path}
-                  className={`bg-primary-gradient bg-clip-text font-medium duration-300 hover:text-transparent ${
+                  className={`bg-primary-gradient bg-clip-text text-sm font-medium duration-300 hover:text-transparent ${
                     pathname === item.path && "text-transparent"
                   }`}
                 >
@@ -46,7 +46,7 @@ export default function Navbar() {
 
         {/* Kanan: Search & Auth */}
         <div className="flex flex-1 items-center justify-end gap-8">
-          <div className="w-fit md:w-full md:max-w-sm md:flex-1">
+          <div className="w-fit md:w-full md:max-w-xs md:flex-1">
             <Search />
           </div>
           <button className="font-semibold text-gray-600">ENG</button>

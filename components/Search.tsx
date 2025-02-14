@@ -5,9 +5,9 @@ export default function Search() {
   return (
     <div
       id="search"
-      className="relative flex w-full items-center rounded-full bg-gray-200 text-gray-400 duration-300"
+      className="relative flex w-full items-center rounded-full text-gray-400 duration-300 md:bg-gray-200"
     >
-      <FaSearch className="m-4 flex-shrink-0 md:my-0" />
+      <FaSearch className="flex-shrink-0 md:m-4 md:my-0" />
       <input
         type="search"
         name="search"

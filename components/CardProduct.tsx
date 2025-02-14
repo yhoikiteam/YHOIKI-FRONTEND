@@ -24,19 +24,19 @@ export default function CardProduct({
   return (
     <div className="inline-block w-full overflow-hidden rounded-2xl border-2 border-gray-200 shadow-[0px_5px_6px_-1px_rgba(0,0,0,0.1)]">
       {/* Hero Image */}
-      <div className="relative flex aspect-auto items-center justify-center">
+      <div className="relative flex aspect-video items-center justify-center">
         <Image
           src={badgeSrc}
           alt={name}
           width={700}
           height={700}
-          className="h-full w-full object-fill"
+          className="h-full w-full object-cover"
         />
       </div>
       {/* Card Content */}
       <div className="p-4">
         <div className="mb-2 flex items-center justify-between">
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3">
             <Image
               src={imageSrc}
               alt="Badge"
@@ -44,7 +44,7 @@ export default function CardProduct({
               height={32}
               className="rounded-full"
             />
-            <span className="text-sm font-semibold text-gray-800">{name}</span>
+            <span className="text-sm font-bold text-davy-gray">{name}</span>
           </div>
 
           {/* Rating */}
@@ -63,9 +63,8 @@ export default function CardProduct({
         </div>
 
         {/* Description */}
-        <div className="relative w-full md:w-[200px]">
-          {" "}
-          <p className="max-h-[3rem] overflow-hidden text-ellipsis whitespace-normal pb-20 text-sm leading-5 text-gray-500">
+        <div className="relative w-full pb-4 pt-2">
+          <p className="text-ellipsis whitespace-normal text-sm font-medium leading-5 text-davy-gray">
             {description}
           </p>
         </div>
@@ -85,14 +84,7 @@ export default function CardProduct({
         </div>
 
         {/* Add to keranjang */}
-        <div className="mt-4 flex items-center justify-between gap-4">
-          {/* <Button
-            id={`product-${price}-price`}
-            url="#"
-            text={`From $${price}`}
-            customcss="w-full py-2 md:py-1 bg-gradient-to-r from-color1 to-color2 rounded-full hover:from-color2 hover:to-color2 duration-300 text-sm font-bold"
-          /> */}
-
+        <div className="mt-3 flex items-center justify-between gap-4">
           <Button className="w-full">From {price}</Button>
           <Button size="icon" className="flex-shrink-0 bg-gainsboro">
             <Image
