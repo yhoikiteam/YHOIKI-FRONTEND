@@ -8,7 +8,7 @@ import { cn } from "@/utils/cn";
 export default function Page() {
   return (
     <>
-      <MaxWidthWrapper className="pt-6 lg:pb-6">
+      <MaxWidthWrapper className="pt-6 lg:pb-4">
         <CategoryBar />
       </MaxWidthWrapper>
       <HeroSection />

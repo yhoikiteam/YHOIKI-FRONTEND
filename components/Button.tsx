@@ -34,6 +34,13 @@ interface ButtonProps
   children: ReactNode;
 }
 
+interface ButtonCategoryProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  children: ReactNode;
+  className?: string;
+  activeFilter?: boolean;
+}
+
 function Button({ variant, size, className, children, ...props }: ButtonProps) {
   return (
     <button
@@ -45,4 +52,24 @@ function Button({ variant, size, className, children, ...props }: ButtonProps) {
   );
 }
 
-export { buttonVariants, Button };
+function ButtonCategory({
+  activeFilter,
+  className,
+  children,
+  ...props
+}: ButtonCategoryProps) {
+  return (
+    <button
+      className={cn(
+        "mb-2 flex h-12 min-w-56 items-center gap-3 rounded-full border-2 bg-platinum px-4 text-left font-semibold text-gray-500 transition-all",
+        { "border-medium-sea-green text-medium-sea-green": activeFilter },
+        className,
+      )}
+      {...props}
+    >
+      {children}
+    </button>
+  );
+}
+
+export { buttonVariants, Button, ButtonCategory };

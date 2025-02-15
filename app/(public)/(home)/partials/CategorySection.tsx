@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
+import { ButtonCategory } from "@/components/Button";
 import CardProduct from "@/components/CardProduct";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import Search from "@/components/Search";
@@ -41,20 +42,14 @@ export default function CategorySection() {
         <div className="flex flex-col gap-8 md:flex-row">
           <div className="flex flex-col transition-all duration-500 ease-in-out">
             {buttonData.map((btn) => (
-              <button
+              <ButtonCategory
                 key={btn.id}
                 onClick={() => setActiveFilter(btn.id)}
-                className={cn(
-                  "mb-2 flex h-12 min-w-56 items-center gap-3 rounded-full border-2 bg-platinum px-4 text-left font-semibold text-gray-500 transition-all",
-                  {
-                    "border-medium-sea-green text-medium-sea-green":
-                      activeFilter === btn.id,
-                  },
-                )}
+                activeFilter={activeFilter === btn.id}
               >
                 <div>{btn.icon}</div>
                 <p className="whitespace-nowrap">{btn.text}</p>
-              </button>
+              </ButtonCategory>
             ))}
           </div>
 

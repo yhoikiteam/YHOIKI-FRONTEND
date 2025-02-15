@@ -23,8 +23,6 @@ export default function CategoryBar() {
     return () => observer.disconnect();
   }, []);
 
-  console.log(categoryBarRef.current?.offsetWidth);
-
   return (
     <div className="w-full overflow-hidden" ref={categoryBarRef}>
       <div

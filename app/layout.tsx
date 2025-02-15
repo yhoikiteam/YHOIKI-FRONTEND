@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import NextTopLoader from "nextjs-toploader";
 import { geistMono, geistSans, inter } from "@/config/fonts";
 import { cn } from "@/utils/cn";
 import "./globals.css";
@@ -24,6 +25,17 @@ export default function RootLayout({
         }
       >
         <main className="relative flex min-h-screen flex-col bg-white">
+          <NextTopLoader
+            color="#61bc71"
+            height={4}
+            // initialPosition={0.08}
+            // crawlSpeed={200}
+            // crawl={true}
+            // showSpinner={true}
+            // easing="ease"
+            // speed={200}
+            shadow="0 0 10px #61bc71,0 0 5px #3cab59"
+          />
           {children}
         </main>
       </body>
