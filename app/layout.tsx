@@ -28,12 +28,12 @@ export default function RootLayout({
           <NextTopLoader
             color="#61bc71"
             height={4}
-            // initialPosition={0.08}
-            // crawlSpeed={200}
-            // crawl={true}
-            // showSpinner={true}
-            // easing="ease"
-            // speed={200}
+            initialPosition={0.08}
+            crawlSpeed={200}
+            crawl={true}
+            showSpinner={true}
+            easing="ease"
+            speed={200}
             shadow="0 0 10px #61bc71,0 0 5px #3cab59"
           />
           {children}
