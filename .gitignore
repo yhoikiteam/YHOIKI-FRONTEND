@@ -20,6 +20,9 @@
 # production
 /build
 
+# husky
+/.husky/_
+
 # misc
 .DS_Store
 *.pem
