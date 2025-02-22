@@ -8,36 +8,45 @@ interface IProps {
 
 export default function AuthLayout({ children }: IProps) {
   return (
-    <div className="flex h-screen w-full items-center justify-center bg-gainsboro">
-      <div className="relative mx-auto flex h-[429px] w-full max-w-3xl overflow-hidden rounded-3xl border border-light-gray bg-light shadow-xl">
-        {/* Logo X di pojok kanan atas
-        <div className="text-4xl">
-        <button
-          type="button"
-          className="absolute right-4 top-4 text-gray-600"
-          onClick={() => router.push("/")} // Tombol close akan mengarahkan ke halaman utama
-        >
-          &times;
-        </button>
+    <div className="flex min-h-screen w-full items-center justify-center px-8 py-10 md:bg-gray-200 lg:px-0">
+      {/* Form Mobile */}
+      {/* <div className="mx-auto inline-flex w-full max-w-md flex-col items-center justify-center gap-4 md:hidden">
+        <img
+          className="w-10"
+          src="https://i.ibb.co.com/0DhSzYN/Yhoiki.png"
+          alt="logo"
+        />
+        {children}
       </div> */}
 
-        {/* Bagian Gambar */}
-        <div className="relative h-full w-1/2 overflow-hidden">
-          <div className="absolute inset-0 z-20 bg-dark opacity-20"></div>
-          <div className="absolute bottom-4 left-4 z-20">
-            <Logo textColor="text-light" />
+      {/* Form Desktop */}
+      <div className="w-full max-w-3xl">
+        <div className="relative mx-auto flex min-h-[400px] w-full overflow-hidden rounded-3xl bg-light md:border md:border-light-gray md:shadow-2xl">
+          {/* Bagian Gambar */}
+          <div className="relative hidden flex-1 overflow-hidden md:block">
+            <div className="absolute inset-0 bg-dark opacity-20"></div>
+            <div className="absolute bottom-4 left-4">
+              <Logo textColor="text-light" />
+            </div>
+            <Image
+              src="/images/Hero.png"
+              alt="Hero Image"
+              width={1000}
+              height={1000}
+              className="h-full w-full object-cover object-left"
+              priority
+            />
           </div>
-          <Image
-            src="/images/Hero.png"
-            alt="Hero Image"
-            width={1000}
-            height={1000}
-            className="z-10 h-full w-full object-cover object-left"
-          />
-        </div>
-        {/* Form Login */}
-        <div className="flex w-1/2 flex-col items-center justify-center space-y-6 p-8">
-          {children}
+
+          {/* Form Login */}
+          <div className="mx-auto flex w-full max-w-md flex-col items-center justify-center gap-4 md:w-1/2 md:p-8">
+            <img
+              className="w-10 md:hidden"
+              src="https://i.ibb.co.com/0DhSzYN/Yhoiki.png"
+              alt="logo"
+            />
+            {children}
+          </div>
         </div>
       </div>
     </div>

@@ -5,17 +5,17 @@ import MaxWidthWrapper from "./MaxWidthWrapper";
 
 const Footer = () => (
   <footer className="mt-8 md:p-8">
-    <MaxWidthWrapper className="rounded-3xl bg-gray-200">
-      <div className="flex flex-col justify-between gap-8 px-6 py-10 xl:flex-row">
+    <MaxWidthWrapper className="bg-gray-200 sm:rounded-3xl">
+      <div className="flex flex-col justify-between gap-8 py-10 xl:flex-row">
         <div className="flex flex-col items-start justify-start gap-4 xl:max-w-lg">
           <Logo />
-          <p className="text-gray-600">
+          <p className="text-sm text-davy-gray sm:text-base">
             Yhoiki Team adalah komunitas pengembang yang berdedikasi menciptakan
             solusi digital kreatif dan inovatif. Kami memiliki pengalaman dalam
             membangun aplikasi modern, website interaktif, serta teknologi masa
             depan yang membantu mempercepat transformasi digital Anda.
           </p>
-          <p className="text-gray-600">
+          <p className="text-davy-gray">
             Copyright Yhoiki {new Date().getFullYear()}. All right reveserd.
           </p>
         </div>
@@ -24,12 +24,12 @@ const Footer = () => (
           {footerLinks.map((item: any) => (
             <div
               key={item.title}
-              className="flex w-fit flex-col gap-7 text-base"
+              className="flex w-fit flex-col gap-4 text-base"
             >
-              <h3 className="font-bold">{item.title}</h3>
-              <div className="flex flex-col gap-3">
+              <h3 className="font-bold text-gray-600">{item.title}</h3>
+              <div className="flex flex-col gap-2 text-davy-gray">
                 {item.links.map((link: any) => (
-                  <a key={link.title} href={link.url} className="text-gray-600">
+                  <a key={link.title} href={link.url} className="">
                     {link.title}
                   </a>
                 ))}

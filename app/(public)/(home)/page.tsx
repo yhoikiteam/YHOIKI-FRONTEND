@@ -1,9 +1,9 @@
-import CategorySection from "@/app/(public)/(home)/partials/CategorySection";
-import HeroSection from "@/app/(public)/(home)/partials/HeroSection";
-import { Button } from "@/components/Button";
+import CategorySection from "@/app/(public)/(home)/_partials/CategorySection";
+import HeroSection from "@/app/(public)/(home)/_partials/HeroSection";
 import CategoryBar from "@/components/CategoryBar";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
-import { cn } from "@/utils/cn";
+import { products } from "@/constants/data-dev/products";
+import HeadingCategorySection from "./_partials/HeadingCategorySection";
 
 export default function Page() {
   return (
@@ -12,11 +12,17 @@ export default function Page() {
         <CategoryBar />
       </MaxWidthWrapper>
       <HeroSection />
-      <CategorySection />
+      <MaxWidthWrapper>
+        <HeadingCategorySection
+          label="Products"
+          description="Look for the products you need here and see competitive prices"
+        />
+        <CategorySection data={products} />
+      </MaxWidthWrapper>
       <div className="my-8 w-full lg:p-8">
         <div className="flex flex-col items-center justify-center gap-10 bg-primary-gradient px-2 py-12 sm:px-4 lg:rounded-3xl lg:p-24">
           <div className="flex flex-wrap justify-center gap-x-2 gap-y-6 sm:gap-6">
-            {[...Array(5)].map((_, i) => (
+            {/* {[...Array(5)].map((_, i) => (
               <Button
                 key={i}
                 className={cn(
@@ -53,7 +59,7 @@ export default function Page() {
                 </svg>
                 Programing
               </Button>
-            ))}
+            ))} */}
           </div>
           <p className="text-center text-3xl font-bold text-light md:text-4xl">
             Want to Learn and Get a Certificate? What are you waiting for!
@@ -61,7 +67,13 @@ export default function Page() {
           </p>
         </div>
       </div>
-      <CategorySection />
+      <MaxWidthWrapper>
+        <HeadingCategorySection
+          label="Class"
+          description="Look for the products you need here and see competitive prices"
+        />
+        <CategorySection data={products} />
+      </MaxWidthWrapper>
     </>
   );
 }

@@ -13,7 +13,7 @@
 │   │   │   ├── page.tsx   # Halaman registrasi
 │   ├── 📂 (public)        # Group route untuk halaman yang tidak butuh autentikasi
 │   │   ├── 📂 (home)
-│   │   │   ├── 📂 partials # Komponen khusus route home
+│   │   │   ├── 📂 _partials # Komponen khusus route home
 │   │   │   │   ├── HomeSection.ts
 │   │   │   ├── page.tsx   # Halaman utama
 │   │   │   ├── layout.tsx # Layout khusus home (opsional)
@@ -161,7 +161,7 @@
 
 ## 📌 Catatan
 
-- **Gunakan folder `partials` di dalam route tertentu untuk memisahkan komponent yang sifatnya tidak rouseble.**
+- **Gunakan folder `_partials` di dalam route tertentu untuk memisahkan komponent yang sifatnya tidak rouseble.**
 - **Gunakan `/components` untuk memisahkan komponent yang sifatnya rouseble.**
 - **Struktur ini fleksibel dan bisa disesuaikan sesuai kebutuhan proyek.**
 

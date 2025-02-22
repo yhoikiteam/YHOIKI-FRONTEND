@@ -4,7 +4,8 @@ import { IoMenu } from "react-icons/io5";
 import { RxCross2 } from "react-icons/rx";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Button } from "./Button";
+import { cn } from "@/utils/cn";
+import { buttonVariants } from "./Button";
 import Logo from "./Logo";
 import Search from "./Search";
 
@@ -14,7 +15,6 @@ interface subMenu {
 }
 
 export const sub: subMenu[] = [
-  { label: "Home", path: "/" },
   { label: "Freelance", path: "/freelance" },
   { label: "Course", path: "/course" },
   { label: "Programs", path: "/programs" },
@@ -30,7 +30,7 @@ export default function Navbar({ state }: any) {
         {/* Kiri: Logo & Menu */}
         <div className="flex items-center gap-10">
           <Logo />
-          <ul className="hidden list-none space-x-8 text-gray-600 xl:flex">
+          <ul className="hidden list-none space-x-8 text-gray-600 md:flex">
             {sub.map((item, index) => (
               <li key={index}>
                 <Link
@@ -48,12 +48,12 @@ export default function Navbar({ state }: any) {
 
         {/* Kanan: Search & Auth */}
         <div className="flex flex-1 items-center justify-end gap-6">
-          <div className="hidden w-fit md:block md:w-full md:max-w-xs md:flex-1">
+          <div className="hidden w-fit lg:block lg:w-full lg:max-w-xs lg:flex-1">
             <Search />
           </div>
           <div
             onClick={() => setIsOpenSearch(!isOpenSearch)}
-            className="w-fit cursor-pointer md:hidden"
+            className="w-fit cursor-pointer lg:hidden"
           >
             <svg
               width="17"
@@ -71,22 +71,31 @@ export default function Navbar({ state }: any) {
               />
             </svg>
           </div>
-          <button className="text-sm font-semibold text-gray-600">ENG</button>
+          {/* <button className="text-sm font-semibold text-gray-600">ENG</button> */}
 
-          <div className="hidden space-x-4 xl:flex">
-            <Button variant="outline" className="shadow-none">
-              <Link href="/login">Login</Link>
-            </Button>
-            <Button>
-              <Link href="/register">Register</Link>
-            </Button>
+          <div className="hidden space-x-4 md:flex">
+            <Link
+              href="/login"
+              className={cn(
+                buttonVariants({ variant: "outline" }),
+                "shadow-none",
+              )}
+            >
+              Login
+            </Link>
+            <Link
+              href="/register"
+              className={cn(buttonVariants(), "shadow-none")}
+            >
+              Register
+            </Link>
           </div>
         </div>
 
         <button
           type="button"
           onClick={() => setIsOpen(!isOpen)}
-          className="relative inline-flex items-center justify-center rounded-md xl:hidden"
+          className="relative inline-flex items-center justify-center rounded-md md:hidden"
         >
           {isOpen ? (
             <RxCross2 size={30} className="text-davy-gray" aria-hidden="true" />

@@ -9,17 +9,22 @@ export default {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    screens: {
+      sm: "640px",
+      // => @media (min-width: 640px) { ... }
+
+      md: "768px",
+      // => @media (min-width: 768px) { ... }
+
+      lg: "1024px",
+      // => @media (min-width: 1024px) { ... }
+
+      xl: "1280px",
+      // => @media (min-width: 1280px) { ... }
+    },
     extend: {
       fontFamily: {
         inter: ["var(--font-inter)", ...defaultTheme.fontFamily.sans],
-        "geist-sans": [
-          "var(--font-geist-sans)",
-          ...defaultTheme.fontFamily.sans,
-        ],
-        "geist-mono": [
-          "var(--font-geist-mono)",
-          ...defaultTheme.fontFamily.sans,
-        ],
       },
       backgroundImage: {
         "primary-gradient": "var(--color-gradient)",
@@ -37,8 +42,8 @@ export default {
         silver: "var(--color-silver)",
         munsell: "var(--color-munsell)",
         gainsboro: "#D9D9D9",
-        "fern-green": "var(--color-fern)",
-        "medium-sea-green": "var(--color-medium-sea-green)",
+        "primary-one": "var(--color-fern)",
+        "primary-two": "var(--color-primary-two)",
         card: {
           platinum: "var(--color-platinum)",
           silver: "var(--color-silver)",

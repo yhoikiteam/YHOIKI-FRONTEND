@@ -12,12 +12,12 @@
   --color-silver: #b9b7b3;
   --color-munsell: #ededed;
   --color-gainsboro: #d9d9d9;
-  --color-fern: #61bc71;
-  --color-medium-sea-green: #3cab59;
+  --color-fern: #75c57e;
+  --color-primary-two: #34a853;
   --color-gradient: linear-gradient(
     to right,
     var(--color-fern),
-    var(--color-medium-sea-green)
+    var(--color-primary-two)
   );
 }
 
@@ -33,18 +33,4 @@
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
   }
-}
-
-.scroll-container::-webkit-scrollbar {
-  display: none;
-}
-
-.scroll-container {
-  scrollbar-width: none;
-}
-
-/* Tambahkan kelas CSS untuk mencegah drag */
-.no-drag {
-  -webkit-user-drag: none; /* untuk browser berbasis Webkit seperti Chrome, Safari */
-  user-select: none; /* mencegah teks atau gambar diseleksi atau diseret */
 }

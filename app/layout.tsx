@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import NextTopLoader from "nextjs-toploader";
-import { geistMono, geistSans, inter } from "@/config/fonts";
+import { inter } from "@/config/fonts";
 import { cn } from "@/utils/cn";
 import "./globals.css";
 
@@ -16,14 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={
-          (cn("relative h-full antialiased"),
-          geistSans.variable,
-          geistMono.variable,
-          inter.variable)
-        }
-      >
+      <body className={(cn("relative h-full antialiased"), inter.variable)}>
         <main className="relative flex min-h-screen flex-col bg-white">
           <NextTopLoader
             color="#61bc71"

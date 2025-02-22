@@ -1,17 +1,14 @@
 "use client";
 
 import * as React from "react";
-import { RxCross2 } from "react-icons/rx";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
-import { Button, buttonVariants } from "@/components/Button";
+import { buttonVariants } from "@/components/Button";
 import Footer from "@/components/Footer";
-import MaintenancePage from "@/components/MaintenancePage";
 import Navbar, { sub } from "@/components/Navbar";
 import Search from "@/components/Search";
-import { useScreenSize } from "@/hooks/useScreenSize";
 import { cn } from "@/utils/cn";
 
 const recomendedSearch = [
@@ -41,11 +38,6 @@ export default function MainLayout({
   const [isOpen, setIsOpen] = React.useState<boolean>(false);
   const [isOpenSearch, setIsOpenSearch] = React.useState<boolean>(false);
   const pathname: string = usePathname();
-  // const isMobile = useScreenSize();
-
-  // if (isMobile) {
-  //   return <MaintenancePage />;
-  // }
 
   return (
     <>
@@ -103,7 +95,7 @@ export default function MainLayout({
             initial={{ translateY: -10 }}
             animate={{ translateY: 0 }}
             exit={{ translateY: 0 }}
-            transition={{ duration: 0.2 }}
+            transition={{ duration: 0.1 }}
             className="fixed inset-0 z-50 flex overflow-hidden border bg-black/50 shadow-sm"
           >
             <motion.div className="w-full origin-top bg-background">

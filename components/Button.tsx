@@ -62,7 +62,7 @@ function ButtonCategory({
     <button
       className={cn(
         "mb-2 flex h-12 min-w-56 items-center gap-3 rounded-full border-2 bg-platinum px-4 text-left font-semibold text-gray-500 transition-all",
-        { "border-medium-sea-green text-medium-sea-green": activeFilter },
+        { "border-primary-two text-primary-two": activeFilter },
         className,
       )}
       {...props}
