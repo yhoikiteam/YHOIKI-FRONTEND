@@ -25,7 +25,7 @@ export default function Navbar({ state }: any) {
   const pathname: string = usePathname();
 
   return (
-    <div className="sticky inset-x-0 top-0 z-50 w-full bg-light shadow-xl">
+    <div className="sticky inset-x-0 top-0 z-50 w-full bg-light shadow-md">
       <nav className="relative flex h-20 w-full items-center justify-between gap-6 border-b px-4 md:px-8">
         {/* Kiri: Logo & Menu */}
         <div className="flex items-center gap-10">

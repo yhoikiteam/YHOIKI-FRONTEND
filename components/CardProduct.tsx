@@ -22,11 +22,11 @@ export default function CardProduct({
   description,
 }: CardProps) {
   return (
-    <div className="inline-block w-full overflow-hidden rounded-2xl border-2 border-gray-200 shadow-[0px_5px_6px_-1px_rgba(0,0,0,0.1)]">
+    <div className="inline-block w-full overflow-hidden">
       {/* Hero Image */}
-      <div className="relative flex aspect-video items-center justify-center">
+      <div className="relative flex aspect-[6/4] w-full items-center justify-center overflow-hidden rounded-xl">
         <Image
-          src={badgeSrc}
+          src="/images/product.png"
           alt={name}
           width={700}
           height={700}
@@ -34,21 +34,21 @@ export default function CardProduct({
         />
       </div>
       {/* Card Content */}
-      <div className="p-4">
+      <div className="pt-2">
         <div className="mb-2 flex items-center justify-between">
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2">
             <Image
               src={imageSrc}
               alt="Badge"
-              width={32}
-              height={32}
-              className="rounded-full"
+              width={50}
+              height={50}
+              className="aspect-square w-8 flex-shrink-0 rounded-full"
             />
-            <span className="text-sm font-bold text-davy-gray">{name}</span>
+            <span className="text-sm font-semibold">{name}</span>
           </div>
 
           {/* Rating */}
-          <span className="flex items-center gap-1 rounded-full bg-primary-gradient px-4 py-[0.2rem] text-xs text-white md:px-2">
+          <span className="flex items-center gap-1 rounded-md bg-primary-gradient px-4 py-[0.2rem] text-xs text-white md:px-2">
             <p className="whitespace-nowrap text-xs">Top Rate</p>
             {[...Array(2)].map((_, index) => (
               <Image
@@ -63,15 +63,15 @@ export default function CardProduct({
         </div>
 
         {/* Description */}
-        <div className="relative w-full pb-4 pt-2">
-          <p className="text-ellipsis whitespace-normal text-sm font-medium leading-5 text-davy-gray">
+        <div className="relative w-full pb-2">
+          <p className="text-ellipsis whitespace-normal text-base text-davy-gray">
             {description}
           </p>
         </div>
 
         {/* Rating and reviews */}
-        <div className="mt-2 flex items-center text-gray-500">
-          <span className="mr-2 flex items-center text-sm">
+        <div className="flex items-center text-davy-gray">
+          <span className="flex items-center text-sm">
             <Image
               src="/icon/Star 2.svg"
               alt="Star Icon"

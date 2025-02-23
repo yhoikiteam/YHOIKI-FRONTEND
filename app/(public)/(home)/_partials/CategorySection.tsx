@@ -30,10 +30,10 @@ export default function CategorySection({ data }: IProps) {
       </div>
 
       {/* Konten Produk */}
-      <div className="overflow-hidden rounded-2xl" ref={emblaRef}>
-        <div className="flex gap-4">
+      <div className="overflow-hidden rounded-xl" ref={emblaRef}>
+        <div className="flex gap-6">
           {data.map((product: any) => (
-            <div key={product.id} className="w-[280px] flex-shrink-0">
+            <div key={product.id} className="w-[300px] flex-shrink-0">
               <CardProduct
                 id={product.id}
                 imageSrc={product.imageSrc}
