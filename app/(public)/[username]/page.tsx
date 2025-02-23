@@ -2,10 +2,9 @@ import { IoIosSend } from "react-icons/io";
 import { LuMapPin } from "react-icons/lu";
 import Image from "next/image";
 import { Button } from "@/components/Button";
-import CardProduct from "@/components/CardProduct";
+import Comment from "@/components/Comment";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import Rating from "@/components/Rating";
-import { products } from "@/constants/data-dev/products";
 import GigsSection from "./_partials/GigsSection";
 
 export default async function Page({
@@ -116,6 +115,9 @@ export default async function Page({
 
       <section className="mt-10">
         <Rating />
+        <div className="mt-6">
+          <Comment />
+        </div>
       </section>
     </MaxWidthWrapper>
   );

@@ -22,10 +22,10 @@ export default function GigsSection() {
       {isAllVisible ? null : (
         <Button
           onClick={() => setVisibleCount(products.length)}
-          className="mt-6 rounded-md border border-primary-one text-primary-one shadow-none"
+          className="mt-6 rounded-md border border-primary-one text-base text-primary-one shadow-none"
           variant="outline"
         >
-          View all
+          View all ({products.length})
         </Button>
       )}
     </section>
