@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import { Button } from "@/components/Button";
-import CardProduct from "@/components/CardProduct";
-import { products } from "@/constants/data-dev/products";
+import Card from "@/components/Card";
+import { Product, products } from "@/constants/data-dev/products";
 
 export default function GigsSection() {
   const [visibleCount, setVisibleCount] = useState(4);
@@ -13,9 +13,9 @@ export default function GigsSection() {
   return (
     <section className="mt-10">
       <h1 className="mb-4 text-2xl font-bold text-davy-gray">My Gigs</h1>
-      <div className="grid gap-x-6 gap-y-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        {sliceProducts.map((product) => (
-          <CardProduct key={product.id} {...product} />
+      <div className="grid gap-x-4 gap-y-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        {sliceProducts.map((product: Product) => (
+          <Card key={product.id} data={product} />
         ))}
       </div>
 

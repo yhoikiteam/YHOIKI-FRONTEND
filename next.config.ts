@@ -11,6 +11,13 @@ const nextConfig: NextConfig = {
         pathname: "/**",
         search: "",
       },
+      {
+        protocol: "https",
+        hostname: "fiverr-res.cloudinary.com",
+        port: "",
+        pathname: "/**",
+        search: "",
+      },
     ],
   },
 };

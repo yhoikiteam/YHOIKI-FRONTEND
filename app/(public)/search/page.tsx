@@ -1,4 +1,4 @@
-import CardProduct from "@/components/CardProduct";
+import Card from "@/components/Card";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import { products } from "@/constants/data-dev/products";
 
@@ -24,16 +24,7 @@ export default async function SearchPage(props: {
       <div className="grid-card">
         {products.map((product) => (
           <div key={product.id} className="w-full">
-            <CardProduct
-              id={product.id}
-              imageSrc={product.imageSrc}
-              badgeSrc={product.badgeSrc}
-              name={product.name}
-              price={product.price}
-              rating={product.rating}
-              reviews={product.reviews}
-              description={product.description}
-            />
+            <Card data={product} />
           </div>
         ))}
       </div>

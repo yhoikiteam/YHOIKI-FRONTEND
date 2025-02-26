@@ -20,10 +20,10 @@ export default async function Page({
           <div className="flex flex-col gap-4 lg:flex-row lg:items-center">
             <div className="aspect-square w-36 flex-shrink-0 overflow-hidden rounded-full border-2 border-primary-one">
               <Image
-                src="/images/no-pictures.png"
+                src="/images/simon.png"
                 alt="seller"
-                width={100}
-                height={100}
+                width={300}
+                height={300}
                 className="h-full w-full object-cover"
               />
             </div>
@@ -98,6 +98,20 @@ export default async function Page({
               have more than 5 years of experience in web development. and I am
               open to helping you with any HTML, CSS or WordPress project.
             </p>
+          </div>
+
+          <div className="mt-6">
+            <h3 className="font-semibold text-davy-gray">Skils</h3>
+            <div className="mt-2 flex flex-wrap gap-2">
+              {[...Array(7)].map((_, i) => (
+                <Button
+                  key={i}
+                  className="h-8 border bg-background font-normal text-davy-gray"
+                >
+                  Nextjs
+                </Button>
+              ))}
+            </div>
           </div>
         </div>
         <div className="mt-6 flex h-fit flex-shrink-0 flex-col items-center justify-center gap-2 rounded-xl border bg-background p-6 shadow-sm lg:mt-0">

@@ -3,7 +3,7 @@ import { cn } from "@/utils/cn";
 import { formatNumber } from "@/utils/formatNumber";
 
 export default function Rating() {
-  const ratings = [100, 0, 10, 3, 50]; // Bintang 5 - 1
+  const ratings = [100, 60, 1, 2, 2]; // Bintang 5 - 1
   const totalRatings = ratings.reduce((acc, val) => acc + val, 0); // Total semua rating
 
   const percentages = ratings.map((rate) => ({
@@ -21,9 +21,10 @@ export default function Rating() {
         totalRatings
       : 0;
 
-  const resultRatingAll = ratingAll === 0 ? "0.0" : ratingAll.toFixed(1); // Pastikan bukan null
+  const resultRatingAll =
+    ratingAll === 0 ? "0.0" : Math.floor(ratingAll * 10) / 10;
 
-  // console.log((2.0 / 5) * 100);
+  // console.log(Math.floor(ratingAll * 10) / 10);
 
   return (
     <>
