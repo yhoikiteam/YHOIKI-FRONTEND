@@ -1,69 +1,27 @@
 "use client";
 
-import React, { useState } from "react";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
+import React from "react";
 import { Button } from "@/components/Button";
-import FormFieldError from "@/components/FormFieldError";
 import HeadingAuth from "@/components/HeadingAuth";
-import InputTypePassword from "@/components/InputTypePassword";
 import AuthLayout from "@/layouts/AuthLayout";
-import { resetPasswordSchema } from "@/validations/authValidation";
 
-type ResetPasswordFormData = z.infer<typeof resetPasswordSchema>;
-
-export default function ResetPasswordPage() {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors, isSubmitting },
-  } = useForm<ResetPasswordFormData>({
-    resolver: zodResolver(resetPasswordSchema),
-  });
-
-  const [passwordVisible, setPasswordVisible] = useState(false);
-  const [passwordVisibleConfirm, setPasswordVisibleConfirm] = useState(false);
-
-  const onSubmit = async (data: ResetPasswordFormData) => {
-    console.log(data);
-  };
-
+export default function ForgetPasswordPage() {
   return (
     <AuthLayout>
       <HeadingAuth
-        label="Reset password"
-        description="Create a new password bellow to change your password"
+        label="Forgot password?"
+        description="Please enter your email or telephone number to reset your password"
       />
-      <form onSubmit={handleSubmit(onSubmit)} className="w-full space-y-4">
-        {/* Password */}
-        <div>
-          <InputTypePassword
-            state={passwordVisible}
-            setState={setPasswordVisible}
-            {...register("password")}
-            placeholder="Password"
-            error={errors.password}
-          />
-
-          <FormFieldError errors={errors.password} />
-        </div>
-
-        {/* Confirm Password */}
-        <div>
-          <InputTypePassword
-            state={passwordVisibleConfirm}
-            setState={setPasswordVisibleConfirm}
-            {...register("confirmPassword")}
-            placeholder="Confirm Password"
-            error={errors.confirmPassword}
-          />
-          <FormFieldError errors={errors.confirmPassword} />
-        </div>
-
-        <Button className="h-11 w-full py-2">
-          {isSubmitting ? "Loading" : "Reset Password"}
-        </Button>
+      <form className="space-y-4">
+        <input
+          type="text"
+          name="username"
+          autoComplete="off"
+          placeholder="john@gmail.com / 62812***"
+          required
+          className="h-11 w-full rounded-full bg-gray-200 px-6 py-2 text-davy-gray outline-primary-one duration-300 placeholder:text-sm"
+        />
+        <Button className="h-11 w-full py-2">Send Reset Intructions</Button>
       </form>
     </AuthLayout>
   );

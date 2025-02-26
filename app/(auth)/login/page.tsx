@@ -58,7 +58,7 @@ const Login = () => {
             <div className="flex justify-between">
               <FormFieldError errors={errors.password} />
               <Link
-                href="/forgot-password"
+                href="/reset-password"
                 className="ml-auto mt-2 block cursor-pointer whitespace-nowrap text-end text-sm text-primary-one hover:underline"
               >
                 Forgot Password?
