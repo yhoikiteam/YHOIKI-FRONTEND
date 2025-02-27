@@ -34,9 +34,10 @@ export default function CategoryBar() {
             <div key={i} className="flex-shrink-0">
               <Link
                 href={`/product`}
-                className="bg-primary-gradient bg-clip-text text-sm font-medium text-davy-gray duration-300 hover:text-transparent"
+                className="group relative block py-2 text-davy-gray duration-300 hover:text-primary-one"
               >
                 {cat.label}
+                <span className="absolute bottom-0 left-0 h-[2px] w-full scale-x-0 bg-primary-gradient transition-transform duration-300 ease-in-out group-hover:scale-x-100" />
               </Link>
             </div>
           ))}

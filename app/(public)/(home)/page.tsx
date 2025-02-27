@@ -1,6 +1,5 @@
 import CategorySection from "@/app/(public)/(home)/_partials/CategorySection";
 import HeroSection from "@/app/(public)/(home)/_partials/HeroSection";
-import CategoryBar from "@/components/CategoryBar";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import { products } from "@/constants/data-dev/products";
 import HeadingCategorySection from "./_partials/HeadingCategorySection";
@@ -8,9 +7,6 @@ import HeadingCategorySection from "./_partials/HeadingCategorySection";
 export default function Page() {
   return (
     <>
-      <MaxWidthWrapper className="pt-6 lg:pb-4">
-        <CategoryBar />
-      </MaxWidthWrapper>
       <HeroSection />
       <MaxWidthWrapper>
         <HeadingCategorySection

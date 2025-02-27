@@ -13,7 +13,7 @@ const HeroSection = () => {
 
   return (
     <MaxWidthWrapper>
-      <section className="w-full pt-10">
+      <section className="w-full pt-16">
         <div className="mx-auto grid w-full grid-cols-1 items-center gap-16 lg:grid-cols-2 lg:gap-0">
           <div className="w-full max-w-2xl">
             <h1 className="text-4xl font-bold leading-tight text-davy-gray">
@@ -31,7 +31,7 @@ const HeroSection = () => {
               </span>{" "}
               Technology.
             </h1>
-            <p className="mt-4 font-medium text-davy-gray md:mr-10">
+            <p className="mt-4 text-davy-gray md:mr-10">
               At Yholix you can find all your digital needs. Come on, start
               searching now and see the prices and discounts! Want to learn
               about technology now? Visit the course menu!
@@ -41,7 +41,7 @@ const HeroSection = () => {
               <Button>Help</Button>
             </div>
             <div className="mt-4">
-              <p className="flex items-center gap-1 text-[13px] font-medium text-dark-gray">
+              <p className="flex items-center gap-1 text-sm text-davy-gray">
                 <span className="text-xl"> &copy;</span>Copyright Yhoiki 2024.
                 All right reveserd.
               </p>
