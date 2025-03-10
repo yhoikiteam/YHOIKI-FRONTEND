@@ -1,15 +1,10 @@
 "use client";
 
 import * as React from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { AnimatePresence, motion } from "framer-motion";
-import { buttonVariants } from "@/components/Button";
+import CategoryBar from "@/components/CategoryBar";
 import Footer from "@/components/Footer";
-import Navbar, { sub } from "@/components/Navbar";
-import Search from "@/components/Search";
-import { cn } from "@/utils/cn";
+import MaxWidthWrapper from "@/components/MaxWidthWrapper";
+import Navbar from "@/components/Navbar/Navbar";
 
 const recomendedSearch = [
   {
@@ -35,13 +30,13 @@ export default function MainLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const [isOpen, setIsOpen] = React.useState<boolean>(false);
-  const [isOpenSearch, setIsOpenSearch] = React.useState<boolean>(false);
-  const pathname: string = usePathname();
+  // const [isOpen, setIsOpen] = React.useState<boolean>(false);
+  // const [isOpenSearch, setIsOpenSearch] = React.useState<boolean>(false);
+  // const pathname: string = usePathname();
 
   return (
     <>
-      <Navbar state={{ setIsOpen, isOpen, setIsOpenSearch, isOpenSearch }} />
+      {/* <Navbar state={{ setIsOpen, isOpen, setIsOpenSearch, isOpenSearch }} />
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -137,7 +132,15 @@ export default function MainLayout({
             </motion.div>
           </motion.div>
         )}
-      </AnimatePresence>
+      </AnimatePresence> */}
+      <div className="sticky left-0 right-0 top-0 z-50 w-full shadow-sm">
+        <Navbar />
+        <div className="relative w-full border-b border-t bg-background">
+          <MaxWidthWrapper className="">
+            <CategoryBar />
+          </MaxWidthWrapper>
+        </div>
+      </div>
       <div className="min-h-screen flex-1 flex-grow bg-background">
         {children}
       </div>

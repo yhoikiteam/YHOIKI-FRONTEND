@@ -29,12 +29,12 @@ export default function CategoryBar() {
         className="relative w-full overflow-hidden"
         ref={carousel ? emblaRef : null}
       >
-        <div className="flex gap-8">
+        <div className="flex gap-6">
           {CATEGORY_BAR.map((cat, i) => (
             <div key={i} className="flex-shrink-0">
               <Link
                 href={`/product`}
-                className="group relative block py-2 text-davy-gray duration-300 hover:text-primary-one"
+                className="group relative z-0 block py-2 text-davy-gray duration-300 hover:text-primary-one"
               >
                 {cat.label}
                 <span className="absolute bottom-0 left-0 h-[2px] w-full scale-x-0 bg-primary-gradient transition-transform duration-300 ease-in-out group-hover:scale-x-100" />

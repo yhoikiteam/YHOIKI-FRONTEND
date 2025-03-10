@@ -9,14 +9,14 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary-gradient hover:bg-primary-gradient/90  text-white",
+        default: "bg-primary-gradient hover:bg-primary-gradient/90 text-white",
         outline:
-          "bg-transparent shadow border-2 border-light-gray rounded-full text-dark-gray",
+          "bg-transparent shadow border border-light-gray rounded-full text-davy-gray",
       },
       size: {
         default: "h-9 px-5 py-2",
-        sm: "h-8  px-3 text-xs",
-        lg: "h-10  px-8",
+        sm: "h-8 px-3 text-xs",
+        lg: "h-10 px-6",
         icon: "h-9 w-9",
       },
     },

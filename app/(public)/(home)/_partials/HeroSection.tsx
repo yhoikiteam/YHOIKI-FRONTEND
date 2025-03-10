@@ -13,7 +13,7 @@ const HeroSection = () => {
 
   return (
     <MaxWidthWrapper>
-      <section className="w-full pt-16">
+      <section className="w-full pt-8 lg:pt-16">
         <div className="mx-auto grid w-full grid-cols-1 items-center gap-16 lg:grid-cols-2 lg:gap-0">
           <div className="w-full max-w-2xl">
             <h1 className="text-4xl font-bold leading-tight text-davy-gray">
@@ -37,8 +37,8 @@ const HeroSection = () => {
               about technology now? Visit the course menu!
             </p>
             <div className="mt-6 flex gap-4">
-              <Button>Get Started</Button>
-              <Button>Help</Button>
+              <Button size="lg">Get Started</Button>
+              <Button size="lg">Help</Button>
             </div>
             <div className="mt-4">
               <p className="flex items-center gap-1 text-sm text-davy-gray">

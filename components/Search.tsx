@@ -18,7 +18,7 @@ export default function Search() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="relative flex w-full items-center rounded-full bg-gray-200 text-gray-400 duration-300"
+      className="relative flex h-10 w-full items-center rounded-full bg-gray-200 text-gray-400 duration-300"
     >
       <div className="mx-4">
         <svg
@@ -47,7 +47,7 @@ export default function Search() {
         value={query}
         autoComplete="off"
         placeholder="Search..."
-        className="w-full bg-transparent py-2 text-davy-gray focus:outline-none"
+        className="h-full w-full bg-transparent text-davy-gray focus:outline-none"
       />
       <Button
         type="submit"
