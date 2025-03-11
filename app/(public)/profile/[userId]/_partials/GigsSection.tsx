@@ -6,8 +6,10 @@ import Card from "@/components/Card";
 import { Product, products } from "@/constants/data-dev/products";
 
 export default function GigsSection() {
+  // data awal yang di render 4 buah
   const [visibleCount, setVisibleCount] = useState(4);
   const sliceProducts = products.slice(0, visibleCount);
+  // jika data dibawah 4 makan button View All nya tidak di render
   const isAllVisible = visibleCount >= products.length;
 
   return (
@@ -19,6 +21,7 @@ export default function GigsSection() {
         ))}
       </div>
 
+      {/* Button View All */}
       {isAllVisible ? null : (
         <Button
           onClick={() => setVisibleCount(products.length)}

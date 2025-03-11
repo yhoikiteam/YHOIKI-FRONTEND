@@ -17,8 +17,9 @@ export default function Page() {
       </MaxWidthWrapper>
       <div className="my-8 w-full lg:p-8">
         <div className="flex flex-col items-center justify-center gap-10 bg-primary-gradient px-2 py-12 sm:px-4 lg:rounded-3xl lg:p-24">
-          <div className="flex flex-wrap justify-center gap-x-2 gap-y-6 sm:gap-6">
-            {/* {[...Array(5)].map((_, i) => (
+          {/* //! Button opsional jika ingin ditambahkan */}
+          {/* <div className="flex flex-wrap justify-center gap-x-2 gap-y-6 sm:gap-6">
+            {[...Array(5)].map((_, i) => (
               <Button
                 key={i}
                 className={cn(
@@ -55,8 +56,8 @@ export default function Page() {
                 </svg>
                 Programing
               </Button>
-            ))} */}
-          </div>
+            ))}
+          </div> */}
           <p className="text-center text-3xl font-bold text-light md:text-4xl">
             Want to Learn and Get a Certificate? What are you waiting for!
             <br />• • •

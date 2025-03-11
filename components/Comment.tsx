@@ -1,6 +1,6 @@
 "use client";
 
-import { Fragment, useState } from "react";
+import { useState } from "react";
 import { BiDislike, BiLike } from "react-icons/bi";
 import { IoIosArrowDown } from "react-icons/io";
 import Image from "next/image";
@@ -11,20 +11,26 @@ export default function Comment() {
   const [sellerResponse, setSellerResponse] = useState(false);
   const [isExpandedUser, setisExpandedUser] = useState(false);
   const [isExpandedSeller, setisExpandedSeller] = useState(false);
+
+  //! BUG (jika di klik maka semua like or dislike akan kena efek statenya)
   const [isHelpful, setIsHelpful] = useState({
     like: false,
     dislike: false,
   });
+
   const COMMENT_LENGTH = 8;
 
+  // state awal hanya menampilkan 3 comment saja
   const [visibleCount, setVisibleCount] = useState(
     COMMENT_LENGTH <= 3 ? COMMENT_LENGTH : 3,
   );
   const sliceComments = [...Array(COMMENT_LENGTH)].slice(0, visibleCount);
 
-  const MAX_LENGTH_USER = 350;
-  const MAX_LENGTH_SELLER = 200;
+  // minimal
+  const MIN_COMMENT_LENGTH_USER = 350;
+  const MIN_COMMENT_LENGTH_SELLER = 200;
 
+  //! MASIH BUG
   function helpful(label: string) {
     const keyLike = label === "like" && !isHelpful.like;
     const keyDislike = label === "dislike" && !isHelpful.dislike;
@@ -37,7 +43,6 @@ export default function Comment() {
 
   const textUser =
     "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deserunt magni sed autem praesentium exercitationem atque eius eos perspiciatis inventore in asperiores minima nobis facilis consequuntur cumque, iste accusamus! Maxime optio laboriosam consequuntur voluptatum, fugiat atque, explicabo consequatur nulla, earum dolorem ducimus recusandae fugit ad quae autem. Obcaecati laboriosam nesciunt molestias odit! Tempore nemo assumenda praesentium iusto ad! Nemo, unde! Cum ullam saepe reprehenderit corporis a deleniti repellat! Ab dignissimos dolore molestiae explicabo dolorum quis facilis accusantium accusamus, quos quae cum iure obcaecati, temporibus mollitia aut nisi consectetur maiores repudiandae! Culpa incidunt molestias minima et? Consequuntur rem cum molestias nesciunt similique?";
-
   const textSeller =
     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod numquam voluptates ab voluptas unde velit tempora voluptatibus incidunt, dolores facere error eos! Soluta quas, laudantium, amet eveniet consequatur ea dolor voluptatibus modi quae totam quos saepe, voluptas fuga a est alias eaque molestias autem!";
 
@@ -104,8 +109,8 @@ export default function Comment() {
                 <p className="my-4 text-davy-gray">
                   {isExpandedUser
                     ? textUser
-                    : `${textUser.substring(0, MAX_LENGTH_USER)}...`}
-                  {textUser.length > MAX_LENGTH_USER && (
+                    : `${textUser.substring(0, MIN_COMMENT_LENGTH_USER)}...`}
+                  {textUser.length > MIN_COMMENT_LENGTH_USER && (
                     <button
                       onClick={() => setisExpandedUser((prev) => !prev)}
                       className="text-primary-one underline hover:underline"
@@ -165,8 +170,8 @@ export default function Comment() {
                       <p>
                         {isExpandedSeller
                           ? textSeller
-                          : `${textSeller.substring(0, MAX_LENGTH_SELLER)}...`}
-                        {textSeller.length > MAX_LENGTH_SELLER && (
+                          : `${textSeller.substring(0, MIN_COMMENT_LENGTH_SELLER)}...`}
+                        {textSeller.length > MIN_COMMENT_LENGTH_SELLER && (
                           <button
                             onClick={() => setisExpandedSeller((prev) => !prev)}
                             className="text-primary-one underline hover:underline"

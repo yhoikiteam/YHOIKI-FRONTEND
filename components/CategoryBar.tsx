@@ -33,7 +33,7 @@ export default function CategoryBar() {
           {CATEGORY_BAR.map((cat, i) => (
             <div key={i} className="flex-shrink-0">
               <Link
-                href={`/product`}
+                href={cat.href as string}
                 className="group relative z-0 block py-2 text-davy-gray duration-300 hover:text-primary-one"
               >
                 {cat.label}

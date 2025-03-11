@@ -61,6 +61,7 @@ export default function ResetPasswordPage() {
           <FormFieldError errors={errors.confirmPassword} />
         </div>
 
+        {/* Button Submit */}
         <Button className="h-11 w-full py-2">
           {isSubmitting ? "Loading" : "Reset Password"}
         </Button>

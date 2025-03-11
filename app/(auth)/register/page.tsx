@@ -16,6 +16,7 @@ import { registerSchema } from "@/validations/authValidation";
 type RegisterFormData = z.infer<typeof registerSchema>;
 
 const Register = () => {
+  // init react-hook-form
   const {
     register,
     handleSubmit,
@@ -24,9 +25,11 @@ const Register = () => {
     resolver: zodResolver(registerSchema),
   });
 
+  // state password-vivible and confirm
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [passwordVisibleConfirm, setPasswordVisibleConfirm] = useState(false);
 
+  // function submit form
   const onSubmit = async (data: RegisterFormData) => {
     console.log(data);
   };

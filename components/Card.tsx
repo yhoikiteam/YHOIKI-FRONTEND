@@ -23,6 +23,7 @@ export default function Card({ data }: { data: Product }) {
           </div>
         </div>
       </div>
+
       {/* Card Content */}
       <div className="p-4">
         <div className="flex items-center justify-between">

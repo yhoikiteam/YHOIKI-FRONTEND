@@ -1,6 +1,7 @@
 import { IoIosSend } from "react-icons/io";
 import { LuMapPin } from "react-icons/lu";
 import Image from "next/image";
+import { notFound } from "next/navigation";
 import { Button } from "@/components/Button";
 import Comment from "@/components/Comment";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
@@ -10,9 +11,11 @@ import GigsSection from "./_partials/GigsSection";
 export default async function Page({
   params,
 }: {
-  params: Promise<{ username: string }>;
+  params: Promise<{ userId: string }>;
 }) {
-  const username = (await params).username;
+  const userId = (await params).userId;
+
+  if (!userId) return notFound();
 
   return (
     <MaxWidthWrapper className="pt-10">
@@ -33,7 +36,7 @@ export default async function Page({
                 <span className="block text-2xl font-bold">
                   Muhammad Sumbul
                 </span>
-                <span className="block text-davy-gray">@{username}</span>
+                {/* <span className="block text-davy-gray">@{username}</span> */}
               </div>
               <div>
                 <p className="mt-1">

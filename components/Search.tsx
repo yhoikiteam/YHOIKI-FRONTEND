@@ -38,8 +38,6 @@ export default function Search() {
         </svg>
       </div>
 
-      {/* <div className="flex flex-shrink-0 items-center justify-center">
-      </div> */}
       <input
         type="search"
         name="query"

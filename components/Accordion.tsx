@@ -3,12 +3,11 @@
 import { ReactNode, useState } from "react";
 import { BiChevronDown } from "react-icons/bi";
 import { cn } from "@/utils/cn";
-import { Button } from "./Button";
 
 interface IProps extends Omit<React.HTMLAttributes<HTMLDivElement>, "title"> {
   children: ReactNode;
   className?: string;
-  title: ReactNode; // Tidak lagi bertabrakan
+  title: ReactNode;
 }
 
 export const AccordionItem = ({ className, title, children }: IProps) => {

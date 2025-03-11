@@ -24,8 +24,6 @@ export default function Rating() {
   const resultRatingAll =
     ratingAll === 0 ? "0.0" : Math.floor(ratingAll * 10) / 10;
 
-  // console.log(Math.floor(ratingAll * 10) / 10);
-
   return (
     <>
       <h1 className="mb-2 text-2xl font-bold text-davy-gray">Reviews</h1>

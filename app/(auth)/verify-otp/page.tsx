@@ -18,6 +18,7 @@ export default function Page() {
     }
   }, [timeLeft]);
 
+  // handle change value input
   const handleChange = (index: number, value: string) => {
     if (!/^\d?$/.test(value)) return; // Hanya angka yang diizinkan
 
@@ -40,6 +41,7 @@ export default function Page() {
     }
   };
 
+  // jika user mem-paste OTP
   const handlePaste = (e: React.ClipboardEvent<HTMLInputElement>) => {
     e.preventDefault();
 
@@ -63,11 +65,13 @@ export default function Page() {
     if (lastIndex < 5) inputsRef.current[lastIndex + 1]?.focus();
   };
 
+  // hanlde submit OTP
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log(otp);
   };
 
+  // handle resend OTP
   const handleResendOtp = () => {
     setTimeLeft(180); // Reset timer ke 3 menit
     setOtp(["", "", "", "", "", ""]); // Reset OTP input

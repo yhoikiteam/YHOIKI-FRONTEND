@@ -1,9 +1,8 @@
 "use client";
 
-import { useCallback, useState } from "react";
-import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import { useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
-import { Button, ButtonCategory } from "@/components/Button";
+import { ButtonCategory } from "@/components/Button";
 import {
   NextButton,
   PrevButton,
@@ -30,6 +29,7 @@ export default function CategorySection({ data }: IProps) {
 
   return (
     <div className="relative flex flex-col gap-8 md:flex-row">
+      {/* Button category */}
       <div className="flex flex-col transition-all duration-500 ease-in-out">
         {buttonData.map((btn) => (
           <ButtonCategory
@@ -43,16 +43,20 @@ export default function CategorySection({ data }: IProps) {
         ))}
       </div>
 
+      {/* Button prev */}
       <PrevButton
         className="absolute top-96 z-30 md:-top-12 md:right-16 [&_svg]:size-3"
         onClick={onPrevButtonClick}
         disabled={prevBtnDisabled}
       />
+
+      {/* Button next */}
       <NextButton
         className="absolute right-0 top-96 z-30 md:-top-12 md:right-3 [&_svg]:size-3"
         onClick={onNextButtonClick}
         disabled={nextBtnDisabled}
       />
+
       {/* Konten Produk */}
       <div className="overflow-hidden rounded-xl pb-2" ref={emblaRef}>
         <div className="flex gap-4">

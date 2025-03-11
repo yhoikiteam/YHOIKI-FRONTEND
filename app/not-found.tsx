@@ -1,7 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
-import MainLayout from "@/layouts/MainLayout";
 import NotFoundLayout from "@/layouts/NotFoundLayout";
 
 export default function NotFound() {

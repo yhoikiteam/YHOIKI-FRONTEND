@@ -7,15 +7,16 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { Button } from "@/components/Button";
 import FormFieldError from "@/components/FormFieldError";
+import HeadingAuth from "@/components/HeadingAuth";
 import Input from "@/components/Input";
+import InputTypePassword from "@/components/InputTypePassword";
 import AuthLayout from "@/layouts/AuthLayout";
 import { loginSchema } from "@/validations/authValidation";
-import HeadingAuth from "../../../components/HeadingAuth";
-import InputTypePassword from "../../../components/InputTypePassword";
 
 type LoginFormData = z.infer<typeof loginSchema>;
 
 const Login = () => {
+  // init react-hook-form
   const {
     register,
     handleSubmit,
@@ -24,8 +25,10 @@ const Login = () => {
     resolver: zodResolver(loginSchema),
   });
 
+  // state password-vivible
   const [passwordVisible, setPasswordVisible] = useState(false);
 
+  // function submit form
   const onSubmit = async (data: LoginFormData) => {
     console.log(data);
   };
@@ -35,6 +38,7 @@ const Login = () => {
       <HeadingAuth label="Login" description="Welcome to platform Yhoiki" />
       <form onSubmit={handleSubmit(onSubmit)} className="w-full">
         <div className="my-4 w-full space-y-4">
+          {/* Email */}
           <div>
             <Input
               type="email"
@@ -46,6 +50,8 @@ const Login = () => {
             />
             <FormFieldError errors={errors.email} />
           </div>
+
+          {/* Password */}
           <div>
             <InputTypePassword
               state={passwordVisible}
@@ -55,6 +61,7 @@ const Login = () => {
               error={errors.password}
             />
 
+            {/* Forgot Password */}
             <div className="flex justify-between">
               <FormFieldError errors={errors.password} />
               <Link
@@ -66,10 +73,14 @@ const Login = () => {
             </div>
           </div>
         </div>
+
+        {/* Button Submit */}
         <Button className="h-11 w-full py-2 text-base">
           {isSubmitting ? "Loading..." : "Login"}
         </Button>
       </form>
+
+      {/* If dont have account */}
       <div className="flex gap-1 text-sm">
         <p className="text-davy-gray">Dont&apos;t have an account?</p>
         <Link href="/register" className="text-primary-one hover:underline">

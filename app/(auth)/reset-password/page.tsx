@@ -21,6 +21,8 @@ export default function ForgetPasswordPage() {
           required
           className="h-11 w-full rounded-full bg-gray-200 px-6 py-2 text-davy-gray outline-primary-one duration-300 placeholder:text-sm"
         />
+
+        {/* Button Submit */}
         <Button className="h-11 w-full py-2">Send Reset Intructions</Button>
       </form>
     </AuthLayout>

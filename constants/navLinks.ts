@@ -12,6 +12,7 @@ type Links = {
 
 type NavLink = Links[];
 
+// Navlink akan menyesuaikan otomatis waalaupun link tidak memiliki items
 export const navLinks: NavLink = [
   {
     label: "Home",
@@ -46,19 +47,4 @@ export const navLinks: NavLink = [
       },
     ],
   },
-  // {
-  //   label: "Comunitas",
-  //   items: [
-  //     {
-  //       label: "Course",
-  //       description: "Learn new skills with online courses",
-  //       href: "/course",
-  //     },
-  //     {
-  //       label: "Products",
-  //       description: "Find and purchase digital products",
-  //       href: "/products",
-  //     },
-  //   ],
-  // },
 ];

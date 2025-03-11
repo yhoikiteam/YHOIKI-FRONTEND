@@ -1,37 +1,28 @@
 "use client";
 
 import { Fragment, useEffect, useRef, useState } from "react";
-import { BiChevronDown, BiMenu, BiSearch, BiX } from "react-icons/bi";
-import { IoLanguage } from "react-icons/io5";
+import { BiMenu, BiSearch, BiX } from "react-icons/bi";
 import { MdLanguage } from "react-icons/md";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { navLinks } from "@/constants/navLinks";
 import { cn } from "@/utils/cn";
 import { AccordionItem } from "../Accordion";
 import { Button, buttonVariants } from "../Button";
-import CategoryBar from "../CategoryBar";
 import Logo from "../Logo";
 import MaxWidthWrapper from "../MaxWidthWrapper";
 import Search from "../Search";
 import Language from "./_partials/Language";
 import Navlinks from "./_partials/Navlinks";
 
-// import { ChevronDown, Menu, Search, X } from "lucide-react";
-
 export default function Navbar() {
-  const pathname: string = usePathname();
-
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
   const [query, setQuery] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
   const languageRef = useRef<HTMLDivElement>(null);
-
-  const navItems = ["Products", "Features", "Pricing", "Support"];
 
   // Focus the input when search opens
   useEffect(() => {
@@ -53,6 +44,7 @@ export default function Navbar() {
     return () => document.removeEventListener("keydown", handleEscKey);
   }, [isSearchOpen, isMenuOpen, isLanguageOpen]);
 
+  // jika user mengklik selain Language Button maka close
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -67,7 +59,7 @@ export default function Navbar() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // Prevent body scroll when search or menu is open
+  // jika search atau hamburger active maka body akan overflow hidden
   useEffect(() => {
     if (isSearchOpen || isMenuOpen) {
       document.body.style.overflow = "hidden";
@@ -83,10 +75,12 @@ export default function Navbar() {
     <div className="relative z-50 flex flex-col bg-background">
       <header className="bg-background/80 w-full backdrop-blur-sm">
         <MaxWidthWrapper className="flex h-[4.5rem] w-full items-center justify-between gap-16">
+          {/* Logo */}
           <div className="flex-shrink-0">
             <Logo />
           </div>
 
+          {/* Navlinks */}
           <div className="flex flex-1 items-center justify-end space-x-4">
             <Navlinks />
           </div>
@@ -153,7 +147,7 @@ export default function Navbar() {
               />
             </div>
 
-            {/* login */}
+            {/* login and register */}
             <div className="hidden items-center lg:flex">
               <div className="flex items-center gap-4">
                 <Link
@@ -180,6 +174,7 @@ export default function Navbar() {
         </MaxWidthWrapper>
       </header>
 
+      {/* jika search and menu active in mobile */}
       <AnimatePresence>
         {isSearchOpen && (
           <motion.div
@@ -339,32 +334,4 @@ export default function Navbar() {
       </AnimatePresence>
     </div>
   );
-}
-
-{
-  /* <div>
-                  <div className="mb-4 mt-8 px-4 font-bold text-davy-gray">
-                    General
-                  </div>
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="h-12 w-full justify-start gap-1 rounded-md border-none px-4 text-base font-normal text-davy-gray shadow-none hover:bg-gray-100"
-                  >
-                    Home
-                  </Button>
-
-                  <div className="flex h-12 w-full cursor-pointer items-center justify-between gap-1 rounded-md border-none px-4 text-sm font-normal text-davy-gray shadow-none hover:bg-gray-100">
-                    <div className="flex items-center gap-1">
-                      <span>ENG</span> <MdLanguage size={16} />
-                    </div>
-
-                    <BiChevronDown
-                      size={24}
-                      className={cn(
-                        isExploreOpen && "rotate-180 transition-all",
-                      )}
-                    />
-                  </div>
-                </div> */
 }
