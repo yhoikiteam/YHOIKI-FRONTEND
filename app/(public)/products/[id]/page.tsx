@@ -3,8 +3,13 @@ import { IoIosSend } from "react-icons/io";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Button } from "@/components/Button";
+import Comment from "@/components/Comment";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
+import Rating from "@/components/Rating";
+import { products } from "@/constants/data-dev/products";
+import MoreProducts from "./_partials/MoreProducts";
 import Payment from "./_partials/Payment";
+import PricingTable from "./_partials/PricingTable";
 import ProductImages from "./_partials/ProductImages";
 
 export default async function ProductDetail({
@@ -17,7 +22,7 @@ export default async function ProductDetail({
 
   return (
     <MaxWidthWrapper className="pt-6">
-      <div className="relative mx-auto flex max-w-6xl flex-col gap-20 lg:flex-row">
+      <div className="relative flex flex-col gap-20 lg:flex-row">
         <div className="">
           {/* header */}
           <div className="w-full">
@@ -205,12 +210,30 @@ export default async function ProductDetail({
               </div>
             </div>
           </div>
+
+          {/* package */}
+          <div className="mt-12">
+            <h3 className="mb-4 text-xl font-semibold">Compare packages</h3>
+            <PricingTable />
+          </div>
+
+          <section className="mt-10">
+            <Rating />
+            <div className="mt-6">
+              <Comment />
+            </div>
+          </section>
         </div>
 
         {/* payment dekstop */}
         <div className="hidden w-full flex-shrink-0 lg:block lg:max-w-sm">
           <Payment />
         </div>
+      </div>
+
+      <div className="mt-20">
+        <h3 className="mb-4 text-xl font-semibold">More Products</h3>
+        <MoreProducts data={products} />
       </div>
     </MaxWidthWrapper>
   );
